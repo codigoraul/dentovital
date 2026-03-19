@@ -7,7 +7,7 @@ $SITE_URL = (isset($_SERVER['HTTP_HOST']) && is_string($_SERVER['HTTP_HOST']) &&
   ? ('https://' . $_SERVER['HTTP_HOST'])
   : 'https://dentistaantofagasta.cl';
 
-$TO_EMAILS_BASE = 'clinicaodontologicadentovital@gmail.com';
+$TO_EMAILS_BASE = 'codigoraul@gmail.com';
 $TO_EMAIL = $TO_EMAILS_BASE;
 $FROM_EMAIL = 'contacto@dentistaantofagasta.cl';
 $FROM_NAME = 'Clínica Dentovital';
