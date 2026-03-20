@@ -1,0 +1,189 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Rehabilitación Oral | Clínica Dentovital" description="Restauración completa de función y estética dental">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Rehabilitación Oral"
+      description="Restauración completa de función y estética dental"
+      backgroundImage="images/especialidades/rehabilitacion-oral.webp"
+    />
+    
+    <section class="especialidad-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-content">
+            <div class="detail-text">
+              <p>
+                La rehabilitación oral es la especialidad que se encarga de restaurar la función, 
+                estética y salud bucal mediante tratamientos integrales que combinan diferentes 
+                procedimientos odontológicos.
+              </p>
+              <p>
+                Diseñamos planes de tratamiento personalizados que pueden incluir implantes, coronas, 
+                puentes, carillas y prótesis, devolviendo la funcionalidad y belleza a tu sonrisa.
+              </p>
+              
+              <h3>Tratamientos de Rehabilitación</h3>
+              <ul>
+                <li><strong>Coronas dentales:</strong> Restauración de dientes dañados</li>
+                <li><strong>Puentes fijos:</strong> Reemplazo de piezas perdidas</li>
+                <li><strong>Prótesis removibles:</strong> Soluciones funcionales y estéticas</li>
+                <li><strong>Prótesis sobre implantes:</strong> Fijación permanente</li>
+                <li><strong>Carillas de porcelana:</strong> Mejora estética dental</li>
+                <li><strong>Rehabilitación completa:</strong> Restauración total de la boca</li>
+              </ul>
+              
+              <h3>Beneficios de la Rehabilitación Oral</h3>
+              <ul>
+                <li>Recuperación de la función masticatoria</li>
+                <li>Mejora significativa de la estética</li>
+                <li>Prevención de problemas futuros</li>
+                <li>Aumento de la autoestima</li>
+                <li>Soluciones duraderas y de calidad</li>
+                <li>Mejora en la calidad de vida</li>
+              </ul>
+              
+              <h3>¿Quién necesita Rehabilitación Oral?</h3>
+              <p>
+                Pacientes con múltiples piezas dentales perdidas, dientes muy desgastados, 
+                fracturas extensas, o que desean mejorar significativamente su sonrisa y 
+                función masticatoria.
+              </p>
+              
+              <h3>Proceso de Tratamiento</h3>
+              <ol>
+                <li><strong>Evaluación inicial:</strong> Examen completo y diagnóstico</li>
+                <li><strong>Planificación digital:</strong> Diseño del tratamiento ideal</li>
+                <li><strong>Fase preparatoria:</strong> Tratamientos previos necesarios</li>
+                <li><strong>Fase restauradora:</strong> Colocación de prótesis y restauraciones</li>
+                <li><strong>Seguimiento:</strong> Control y mantenimiento a largo plazo</li>
+              </ol>
+              
+              <div class="cta-box">
+                <p>¿Necesitas rehabilitar tu sonrisa?</p>
+                <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-image">
+            <img src={asset('images/especialidades/rehabilitacion-oral.webp')} alt="Rehabilitación Oral" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .especialidad-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .detail-content h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    margin-bottom: 30px;
+  }
+  
+  .detail-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 25px;
+  }
+  
+  .detail-text h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin: 40px 0 20px;
+  }
+  
+  .detail-text ul,
+  .detail-text ol {
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .detail-text li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 12px;
+  }
+  
+  .detail-text strong {
+    color: var(--dark);
+  }
+  
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+  
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .detail-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+      font-size: 1.1rem;
+    }
+    
+    .detail-image {
+      position: static;
+    }
+  }
+</style>

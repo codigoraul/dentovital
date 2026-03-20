@@ -1,0 +1,187 @@
+import { getEspecialidades } from '../lib/wordpress.js';
+import { resolveAsset, resolveRoute } from '../lib/assets';
+
+let especialidades = [];
+let isWpConnected = false;
+
+try {
+  especialidades = await getEspecialidades();
+  isWpConnected = especialidades.length > 0;
+} catch (error) {
+  console.error('Error loading especialidades:', error);
+}
+
+const fallbackEspecialidades = [
+  {
+    nombre: "Implantología",
+    descripcion: "Reemplazo de piezas dentales con implantes de titanio de última generación",
+    imagen: "/images/especialidades/implantologia.webp",
+    slug: "implantologia"
+  },
+  {
+    nombre: "Ortodoncia",
+    descripcion: "Corrección de malposiciones dentales con técnicas modernas",
+    imagen: "/images/especialidades/ortodoncia.webp",
+    slug: "ortodoncia"
+  },
+  {
+    nombre: "Endodoncia",
+    descripcion: "Tratamiento de conductos radiculares con tecnología avanzada",
+    imagen: "/images/especialidades/endodoncia.webp",
+    slug: "endodoncia"
+  },
+  {
+    nombre: "Rehabilitación oral",
+    descripcion: "Restauración completa de función y estética dental",
+    imagen: "/images/especialidades/rehabilitacion-oral.webp",
+    slug: "rehabilitacion-oral"
+  },
+  {
+    nombre: "Estética facial",
+    descripcion: "Armonización y rejuvenecimiento facial con técnicas no invasivas",
+    imagen: "/images/especialidades/estetica-facial.webp",
+    slug: "estetica-facial"
+  },
+  {
+    nombre: "Odontología general",
+    descripcion: "Atención integral para toda la familia",
+    imagen: "",
+    slug: "odontologia-general"
+  }
+];
+
+const asset = (path: string) => resolveAsset(Astro, path);
+const route = (path = '') => resolveRoute(Astro, path);
+
+const displayEspecialidades = isWpConnected ? especialidades : fallbackEspecialidades;
+---
+
+<section class="section especialidades" id="especialidades">
+  <div class="container">
+    <h2 class="section-title">Especialidades</h2>
+    <p class="section-subtitle">Expertos en cada área de la odontología</p>
+    
+    {!isWpConnected && (
+      <div class="wp-notice">
+        <p>⚠️ Mostrando contenido de ejemplo. Conecta WordPress para ver especialidades dinámicas.</p>
+      </div>
+    )}
+    
+    <div class="grid grid-3">
+      {displayEspecialidades.map(esp => {
+        const nombre = isWpConnected ? esp.acf?.especialidad_nombre || esp.title?.rendered : esp.nombre;
+        const descripcion = isWpConnected ? esp.acf?.especialidad_descripcion : esp.descripcion;
+        const imagen = isWpConnected ? esp.acf?.especialidad_imagen?.url : esp.imagen;
+        const slug = isWpConnected ? esp.slug : esp.slug;
+        const imagenSrc = imagen ? asset(imagen) : null;
+
+        return (
+          <div class="card especialidad-card">
+            {imagenSrc ? (
+              <div class="especialidad-image">
+                <img src={imagenSrc} alt={nombre} />
+              </div>
+            ) : (
+              <div class="especialidad-icono"><span>🦷</span></div>
+            )}
+            <div class="especialidad-content">
+              <h3>
+                <a href={route(`especialidad/${slug}`)}>{nombre}</a>
+              </h3>
+              <p>{descripcion}</p>
+              <a href={route(`especialidad/${slug}`)} class="card-link">Ver más →</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .especialidades {
+    background: var(--cream);
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: var(--dark-mid);
+    font-size: 1.1rem;
+    margin-top: -30px;
+    margin-bottom: 50px;
+  }
+  
+  .wp-notice {
+    background: rgba(198, 165, 92, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .wp-notice p {
+    color: var(--dark-mid);
+    margin: 0;
+  }
+  
+  .especialidad-card {
+    text-align: center;
+    background: #fff;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .especialidad-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .especialidad-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .especialidad-card:hover .especialidad-image img {
+    transform: scale(1.05);
+  }
+
+  .especialidad-icono {
+    font-size: 3rem;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .especialidad-content {
+    padding: 20px 25px 25px;
+  }
+
+  .especialidad-card h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .especialidad-card p {
+    color: var(--dark-mid);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .card-link:hover {
+    color: var(--dark);
+  }
+</style>

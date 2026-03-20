@@ -1,0 +1,168 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Ortodoncia | Clínica Dentovital" description="Corrección de malposiciones dentales con brackets y alineadores invisibles">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Ortodoncia"
+      description="Corrección de malposiciones dentales con brackets y alineadores invisibles"
+      backgroundImage="images/especialidades/ortodoncia.webp"
+    />
+    
+    <section class="especialidad-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-content">
+            <div class="detail-text">
+              <p>
+                La ortodoncia es la especialidad que se encarga de corregir la posición de los dientes 
+                y los huesos maxilares para lograr una sonrisa armónica y una correcta función masticatoria.
+              </p>
+              <p>
+                Ofrecemos diferentes opciones de tratamiento ortodóncico, desde brackets tradicionales 
+                hasta alineadores invisibles, adaptándonos a las necesidades y preferencias de cada paciente.
+              </p>
+              
+              <h3>Tipos de Ortodoncia</h3>
+              <ul>
+                <li><strong>Brackets metálicos:</strong> Opción tradicional y efectiva</li>
+                <li><strong>Brackets cerámicos:</strong> Más estéticos y discretos</li>
+                <li><strong>Ortodoncia invisible:</strong> Alineadores transparentes removibles</li>
+                <li><strong>Ortodoncia lingual:</strong> Brackets colocados en la cara interna</li>
+              </ul>
+              
+              <h3>Beneficios del Tratamiento</h3>
+              <ul>
+                <li>Mejora la estética de la sonrisa</li>
+                <li>Facilita la higiene dental</li>
+                <li>Previene problemas de ATM</li>
+                <li>Mejora la función masticatoria</li>
+                <li>Aumenta la autoestima</li>
+                <li>Previene desgaste dental prematuro</li>
+              </ul>
+              
+              <h3>¿Cuándo es necesaria?</h3>
+              <p>
+                La ortodoncia está indicada en casos de apiñamiento dental, dientes separados, 
+                mordida cruzada, sobremordida, mordida abierta y otras malposiciones dentales.
+              </p>
+              
+              <div class="cta-box">
+                <p>¿Quieres mejorar tu sonrisa con ortodoncia?</p>
+                <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-image">
+            <img src={asset('images/especialidades/ortodoncia.webp')} alt="Ortodoncia" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .especialidad-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .detail-content h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    margin-bottom: 30px;
+  }
+  
+  .detail-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 25px;
+  }
+  
+  .detail-text h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin: 40px 0 20px;
+  }
+  
+  .detail-text ul,
+  .detail-text ol {
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .detail-text li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 12px;
+  }
+  
+  .detail-text strong {
+    color: var(--dark);
+  }
+  
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+  
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .detail-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .detail-image {
+      position: static;
+    }
+  }
+</style>

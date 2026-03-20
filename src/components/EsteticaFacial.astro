@@ -1,0 +1,122 @@
+---
+const procedimientos = [
+  "Armonización facial",
+  "Botox / Dysport",
+  "Ácido hialurónico",
+  "Bioestimuladores de colágeno",
+  "Hilos tensores",
+  "Hilos revitalizantes",
+  "Exosomas + ADN salmón",
+  "Mesoterapia: Pink Glow, Orchid Glow, Amber Glow, NCTF",
+  "HIFU",
+  "Endolaser",
+  "Bichectomía"
+];
+---
+
+<section class="section estetica-facial" id="estetica-facial">
+  <div class="container">
+    <h2 class="section-title">Estética Facial</h2>
+    <p class="section-subtitle">Tratamientos de rejuvenecimiento y armonización facial</p>
+    
+    <div class="estetica-content">
+      <div class="estetica-intro">
+        <p>
+          En Clínica Dentovital combinamos la odontología estética con tratamientos 
+          faciales de última generación para ofrecerte una armonización completa de tu rostro.
+        </p>
+        <p>
+          Nuestros procedimientos son mínimamente invasivos, seguros y con resultados naturales.
+        </p>
+      </div>
+      
+      <div class="procedimientos-grid">
+        {procedimientos.map(proc => (
+          <div class="procedimiento-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{proc}</span>
+          </div>
+        ))}
+      </div>
+      
+      <div class="estetica-cta">
+        <a href="https://wa.me/56937725890?text=Hola,%20quiero%20información%20sobre%20estética%20facial" target="_blank" class="btn btn-primary">
+          Solicitar Información
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .estetica-facial {
+    background: var(--dark-mid);
+    color: #fff;
+  }
+  
+  .estetica-facial .section-title {
+    color: #fff;
+  }
+  
+  .estetica-facial .section-subtitle {
+    color: var(--gold-light);
+  }
+  
+  .estetica-intro {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+  }
+  
+  .estetica-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .procedimientos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .procedimiento-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: rgba(198, 165, 92, 0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .procedimiento-item:hover {
+    background: rgba(198, 165, 92, 0.2);
+    transform: translateX(5px);
+  }
+  
+  .procedimiento-item svg {
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  
+  .procedimiento-item span {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .estetica-cta {
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .procedimientos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

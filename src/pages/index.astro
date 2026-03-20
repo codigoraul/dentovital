@@ -1,17 +1,462 @@
 ---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import { resolveAsset, resolveRoute } from '../lib/assets';
 
+const asset = (path: string) => resolveAsset(Astro, path);
+const route = (path = '') => resolveRoute(Astro, path);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+	<Header />
+	
+	<main style="margin-top: 90px;">
+		<section class="hero-home" style={`--hero-bg: url('${asset('images/slider-1.webp')}')`}>
+			<div class="hero-background"></div>
+			<div class="hero-overlay"></div>
+			<div class="container">
+				<div class="hero-content">
+					<h1>Odontología Moderna y Estética Facial en Antofagasta</h1>
+					<p>Tratamientos de última generación con tecnología digital y enfoque personalizado</p>
+					<div class="hero-buttons">
+						<a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Hora</a>
+						<a href={route('servicios')} class="btn btn-outline">Ver Servicios</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="section especialidades-preview">
+			<div class="container">
+				<div class="section-header">
+					<h2>Nuestras Especialidades</h2>
+					<p>Expertos en cada área de la odontología</p>
+				</div>
+				
+				<div class="preview-grid">
+					<div class="preview-card">
+						<div class="preview-image">
+							<img src={asset('images/especialidades/implantologia.webp')} alt="Implantología" />
+						</div>
+						<h3><a href={route('especialidad/implantologia')}>Implantología</a></h3>
+						<p>Reemplazo de piezas dentales con implantes de titanio de última generación</p>
+						<a href={route('especialidad/implantologia')} class="card-link">Ver más</a>
+					</div>
+					
+					<div class="preview-card">
+						<div class="preview-image">
+							<img src={asset('images/especialidades/ortodoncia.webp')} alt="Ortodoncia" />
+						</div>
+						<h3><a href={route('especialidad/ortodoncia')}>Ortodoncia</a></h3>
+						<p>Corrección de malposiciones dentales con brackets y alineadores invisibles</p>
+						<a href={route('especialidad/ortodoncia')} class="card-link">Ver más</a>
+					</div>
+					
+					<div class="preview-card">
+						<div class="preview-image">
+							<img src={asset('images/especialidades/estetica-facial.webp')} alt="Estética Facial" />
+						</div>
+						<h3><a href={route('especialidad/estetica-facial')}>Estética Facial</a></h3>
+						<p>Armonización y rejuvenecimiento facial con técnicas no invasivas</p>
+						<a href={route('especialidad/estetica-facial')} class="card-link">Ver más</a>
+					</div>
+				</div>
+				
+				<div class="section-cta">
+					<a href={route('especialidades')} class="btn btn-outline">Ver todas las especialidades</a>
+				</div>
+			</div>
+		</section>
+		
+		<section class="section features">
+			<div class="container">
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+							</svg>
+						</div>
+						<h3>Tecnología Digital</h3>
+						<p>Equipamiento de última generación para diagnósticos precisos y tratamientos efectivos (edit)</p>
+					</div>
+					
+					<div class="feature-card">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+								<circle cx="9" cy="7" r="4"></circle>
+								<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+								<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+							</svg>
+						</div>
+						<h3>Profesionales Expertos</h3>
+						<p>Equipo altamente capacitado en todas las especialidades odontológicas</p>
+					</div>
+					
+					<div class="feature-card">
+						<div class="feature-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<circle cx="12" cy="12" r="10"></circle>
+								<polyline points="12 6 12 12 16 14"></polyline>
+							</svg>
+						</div>
+						<h3>Atención Personalizada</h3>
+						<p>Tratamientos diseñados específicamente para cada paciente</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="section servicios-preview">
+			<div class="container">
+				<div class="section-header">
+					<h2>Servicios Destacados</h2>
+					<p>Tratamientos odontológicos de última generación</p>
+				</div>
+				
+				<div class="preview-grid">
+					<div class="preview-card">
+						<div class="preview-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+							</svg>
+						</div>
+						<h3>Blanqueamiento Dental</h3>
+						<p>Sonrisa más blanca y brillante con tecnología avanzada y segura</p>
+					</div>
+					
+					<div class="preview-card">
+						<div class="preview-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<circle cx="12" cy="12" r="10"/>
+								<polyline points="12 6 12 12 16 14"/>
+							</svg>
+						</div>
+						<h3>Diseño de Sonrisa</h3>
+						<p>Planificación digital personalizada para tu sonrisa perfecta</p>
+					</div>
+					
+					<div class="preview-card">
+						<div class="preview-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+								<circle cx="9" cy="7" r="4"/>
+							</svg>
+						</div>
+						<h3>Implantes Dentales</h3>
+						<p>Reemplazo permanente de piezas dentales con titanio biocompatible</p>
+					</div>
+				</div>
+				
+				<div class="section-cta">
+					<a href={route('servicios')} class="btn btn-outline">Ver todos los servicios</a>
+				</div>
+			</div>
+		</section>
+		
+		<section class="section cta-section">
+			<div class="container">
+				<div class="cta-content">
+					<h2>¿Listo para transformar tu sonrisa?</h2>
+					<p>Agenda tu evaluación hoy y descubre cómo podemos ayudarte</p>
+					<a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<Footer />
+	<WhatsAppBtn />
+</MainLayout>
+
+<style>
+	.hero-home {
+		position: relative;
+		color: var(--white);
+		padding: 150px 0 120px;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	.hero-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: var(--hero-bg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		z-index: 0;
+	}
+	
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(44, 44, 44, 0.65) 100%);
+		z-index: 1;
+	}
+	
+	.hero-home .container {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.hero-content h1 {
+		font-size: 3.5rem;
+		margin-bottom: 25px;
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.hero-content p {
+		font-size: 1.3rem;
+		color: var(--primary-light);
+		margin-bottom: 40px;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.hero-buttons {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.features {
+		background: var(--dark-mid);
+	}
+	
+	.features .feature-card h3 {
+		color: var(--white);
+	}
+	
+	.features .feature-card p {
+		color: rgba(255, 255, 255, 0.8);
+	}
+	
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 40px;
+	}
+	
+	.feature-card {
+		text-align: center;
+		padding: 40px 30px;
+	}
+	
+	.feature-icon {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--cream);
+		border-radius: 50%;
+	}
+	
+	.feature-icon svg {
+		color: var(--primary);
+	}
+	
+	.feature-card h3 {
+		font-size: 1.5rem;
+		color: var(--dark);
+		margin-bottom: 15px;
+	}
+	
+	.feature-card p {
+		color: var(--dark-mid);
+		line-height: 1.7;
+	}
+	
+	.cta-section {
+		background: var(--cream);
+	}
+	
+	.cta-content {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+	
+	.cta-content h2 {
+		font-size: 2.5rem;
+		color: var(--dark);
+		margin-bottom: 20px;
+	}
+	
+	.cta-content p {
+		font-size: 1.2rem;
+		color: var(--dark-mid);
+		margin-bottom: 35px;
+	}
+	
+	.especialidades-preview {
+		background: #fff;
+	}
+	
+	.servicios-preview {
+		background: var(--cream);
+	}
+
+	.servicios-preview .section-header h2 {
+		color: var(--dark);
+	}
+
+	.servicios-preview .section-header p {
+		color: var(--dark-mid);
+	}
+
+	.servicios-preview .preview-card {
+		background: #fff;
+		border-color: rgba(0, 0, 0, 0.08);
+	}
+
+	.servicios-preview .preview-card:hover {
+		background: #fff;
+		border-color: var(--primary);
+	}
+
+	.servicios-preview .preview-card h3 {
+		color: var(--dark);
+	}
+
+	.servicios-preview .preview-card p {
+		color: var(--dark-mid);
+	}
+	
+	.section-header {
+		text-align: center;
+		margin-bottom: 50px;
+	}
+	
+	.section-header h2 {
+		font-size: 2.5rem;
+		color: var(--dark);
+		margin-bottom: 15px;
+	}
+	
+	.section-header p {
+		font-size: 1.1rem;
+		color: var(--dark-mid);
+	}
+	
+	.preview-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-bottom: 40px;
+	}
+	
+	.preview-card {
+		background: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 10px;
+		padding: 0;
+		overflow: hidden;
+		text-align: center;
+		transition: all 0.3s ease;
+	}
+	
+	.preview-card:hover {
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+		border-color: var(--primary);
+		transform: translateY(-5px);
+	}
+	
+	.preview-image {
+		width: 100%;
+		height: 220px;
+		overflow: hidden;
+	}
+	
+	.preview-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s ease;
+	}
+	
+	.preview-card:hover .preview-image img {
+		transform: scale(1.05);
+	}
+	
+	.card-link {
+		display: inline-block;
+		margin: 15px 0 25px;
+		color: var(--primary);
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+	
+	.card-link:hover {
+		color: var(--dark);
+	}
+	
+	.preview-card h3 {
+		font-size: 1.4rem;
+		color: var(--dark);
+		margin-bottom: 12px;
+		padding: 25px 25px 0;
+	}
+	
+	.preview-card p {
+		color: var(--dark-mid);
+		line-height: 1.6;
+		font-size: 0.95rem;
+		padding: 0 25px;
+	}
+	
+	.section-cta {
+		text-align: center;
+	}
+	
+	@media (max-width: 968px) {
+		.preview-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.hero-home {
+			padding: 120px 0 80px;
+		}
+		
+		.hero-content h1 {
+			font-size: 2.2rem;
+		}
+		
+		.hero-content p {
+			font-size: 1.1rem;
+		}
+		
+		.hero-buttons {
+			flex-direction: column;
+		}
+		
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.section-header h2 {
+			font-size: 2rem;
+		}
+		
+		.cta-content h2 {
+			font-size: 2rem;
+		}
+	}
+</style>

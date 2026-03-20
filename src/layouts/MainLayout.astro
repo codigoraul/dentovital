@@ -1,0 +1,35 @@
+---
+import { resolveAsset } from '../lib/assets';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Dentista en Antofagasta | Implantes Dentales | Clínica Dentovital",
+  description = "Clínica dental en Antofagasta especializada en implantes dentales, rehabilitación oral, odontología digital y estética facial. Agenda tu hora hoy."
+} = Astro.props;
+
+const faviconUrl = resolveAsset(Astro, 'logo-dentovital.png');
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="keywords" content="dentista en Antofagasta, implantes dentales Antofagasta, clínica dental Antofagasta, botox Antofagasta, estética facial Antofagasta">
+  <link rel="icon" type="image/png" href={faviconUrl}>
+  <link rel="canonical" href="https://dentovital.cl">
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

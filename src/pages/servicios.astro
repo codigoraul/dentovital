@@ -1,0 +1,184 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import PageHero from '../components/PageHero.astro';
+import { resolveAsset } from '../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+
+const servicios = [
+  {
+    nombre: "Limpieza dental",
+    imagen: "images/servicios/limpieza-dental.webp",
+    descripcion: "Profilaxis profesional para mantener tu salud bucal en óptimas condiciones"
+  },
+  {
+    nombre: "Blanqueamiento dental",
+    imagen: "images/servicios/blanqueamiento-dental.webp",
+    descripcion: "Sonrisa más blanca y brillante con tecnología avanzada y segura"
+  },
+  {
+    nombre: "Restauraciones",
+    imagen: "images/servicios/restauraciones.webp",
+    descripcion: "Reparación de piezas dentales con materiales de alta calidad y estética"
+  },
+  {
+    nombre: "Extracciones",
+    imagen: "images/servicios/extracciones.webp",
+    descripcion: "Procedimientos seguros y con mínimas molestias post-operatorias"
+  },
+  {
+    nombre: "Endodoncias",
+    imagen: "images/servicios/endodoncias.webp",
+    descripcion: "Tratamiento de conducto para salvar tu pieza dental de forma efectiva"
+  },
+  {
+    nombre: "Ortodoncia invisible",
+    imagen: "images/servicios/ortodoncia-invisible.webp",
+    descripcion: "Alineadores dentales discretos y efectivos para corregir tu sonrisa"
+  },
+  {
+    nombre: "Ortodoncia convencional",
+    imagen: "images/servicios/ortodoncia.webp",
+    descripcion: "Brackets metálicos y cerámicos de alta calidad y precisión"
+  },
+  {
+    nombre: "Implantes dentales",
+    imagen: "images/servicios/implantes.webp",
+    descripcion: "Reemplazo permanente de piezas dentales perdidas con titanio biocompatible"
+  },
+  {
+    nombre: "Diseño de sonrisa",
+    imagen: "images/servicios/diseno-sonrisa.webp",
+    descripcion: "Planificación digital personalizada para tu sonrisa perfecta"
+  },
+  {
+    nombre: "Coronas",
+    imagen: "images/servicios/coronas.webp",
+    descripcion: "Prótesis fijas unitarias y plurales de alta estética y durabilidad"
+  },
+  {
+    nombre: "Prótesis removibles",
+    imagen: "images/servicios/protesis-removibles.webp",
+    descripcion: "Soluciones funcionales y estéticas personalizadas para cada paciente"
+  },
+  {
+    nombre: "Atención infantil",
+    imagen: "images/servicios/atencion-infantil.webp",
+    descripcion: "Cuidado dental especializado para niños en ambiente amigable"
+  },
+  {
+    nombre: "Carillas dentales",
+    imagen: "images/servicios/carillas-dentales.webp",
+    descripcion: "Láminas ultra delgadas de porcelana para una sonrisa perfecta"
+  }
+];
+---
+
+<MainLayout title="Servicios | Clínica Dentovital" description="Servicios odontológicos de última generación en Antofagasta">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Nuestros Servicios"
+      description="Tratamientos odontológicos de última generación"
+      backgroundImage="images/bg-title/bg-servicios.webp"
+    />
+    
+    <section class="section">
+      <div class="container">
+        <div class="servicios-grid">
+          {servicios.map(servicio => (
+            <div class="servicio-card">
+              <img src={asset(servicio.imagen)} alt={servicio.nombre} />
+              <h3 class="servicio-card-title">{servicio.nombre}</h3>
+              <p>{servicio.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .hero-page {
+    background: var(--dark);
+    color: var(--white);
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+  
+  .hero-page h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-page p {
+    font-size: 1.2rem;
+    color: var(--primary-light);
+  }
+  
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .servicio-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .servicio-card:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary);
+    transform: translateY(-5px);
+  }
+  
+  .servicio-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border-radius: 50%;
+  }
+  
+  .servicio-icon svg {
+    color: var(--primary);
+  }
+  
+  .servicio-card h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin: 15px 0 12px 0;
+  }
+  
+  .servicio-card p {
+    color: var(--dark-mid);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-page h1 {
+      font-size: 2.2rem;
+    }
+    
+    .servicios-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

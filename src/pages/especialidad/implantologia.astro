@@ -1,0 +1,240 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Implantología | Clínica Dentovital" description="Reemplazo de piezas dentales con implantes de titanio de última generación">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Implantología"
+      description="Reemplazo de piezas dentales con implantes de titanio de última generación"
+      backgroundImage="images/especialidades/implantologia.webp"
+    />
+    
+    <section class="especialidad-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-content">
+            <div class="detail-text">
+              <p>
+                La implantología dental permite reemplazar dientes perdidos mediante implantes de titanio 
+                que se integran al hueso, funcionando como una nueva raíz dental. Esto permite recuperar 
+                dientes fijos, estéticos y funcionales, devolviendo la seguridad al hablar, comer y sonreír.
+              </p>
+              <p>
+                En Clínica Dentovital utilizamos tecnología digital avanzada para realizar tratamientos 
+                más precisos, cómodos y predecibles.
+              </p>
+              
+              <h3>Tecnología Digital Aplicada a la Implantología</h3>
+              
+              <h4>Escáner Intraoral (Odontología Digital)</h4>
+              <p>
+                Utilizamos scanner intraoral, que reemplaza los antiguos moldes de silicona por un 
+                registro digital preciso de la boca del paciente.
+              </p>
+              <p><strong>Esto permite:</strong></p>
+              <ul>
+                <li>Mayor precisión en el diagnóstico</li>
+                <li>Mayor comodidad para el paciente</li>
+                <li>Planificación digital del tratamiento</li>
+                <li>Resultados más predecibles</li>
+              </ul>
+              
+              <h4>Cirugía Guiada por Computador</h4>
+              <p>
+                Gracias a la planificación digital podemos realizar cirugía guiada de implantes mediante 
+                guías quirúrgicas diseñadas por computador e impresas en 3D.
+              </p>
+              <p><strong>Esto permite:</strong></p>
+              <ul>
+                <li>Cirugías más precisas</li>
+                <li>Procedimientos menos invasivos</li>
+                <li>Menor dolor y menor inflamación</li>
+                <li>Recuperación más rápida</li>
+                <li>Posicionamiento ideal del implante</li>
+              </ul>
+              
+              <h4>Guías Quirúrgicas Impresas en 3D</h4>
+              <p>
+                Las guías quirúrgicas 3D permiten colocar los implantes exactamente en la posición 
+                planificada digitalmente, aumentando la seguridad y la precisión del tratamiento.
+              </p>
+              
+              <h4>Provisorios Impresos en 3D</h4>
+              <p>
+                En muchos casos podemos confeccionar dientes provisorios mediante impresión 3D, lo que 
+                permite que el paciente recupere la estética dental en menor tiempo mientras cicatriza 
+                el implante.
+              </p>
+              
+              <h3>Implantes Dentales de Alta Calidad</h3>
+              <p>
+                Trabajamos con implantes europeos de origen italiano, fabricados con tecnología avanzada 
+                y respaldados por garantía de por vida del fabricante.
+              </p>
+              <p><strong>Estos implantes están diseñados para:</strong></p>
+              <ul>
+                <li>Integrarse de forma segura al hueso</li>
+                <li>Resistir fuerzas masticatorias</li>
+                <li>Mantener estabilidad a largo plazo</li>
+                <li>Lograr resultados estéticos naturales</li>
+              </ul>
+              
+              <h3>Beneficios de los Implantes Dentales</h3>
+              <ul>
+                <li>Solución permanente y duradera</li>
+                <li>Aspecto y función natural</li>
+                <li>Preservación del hueso maxilar</li>
+                <li>No afecta dientes adyacentes</li>
+                <li>Mejora la calidad de vida</li>
+                <li>Alta tasa de éxito (95-98%)</li>
+              </ul>
+              
+              <div class="cta-box">
+                <p>¿Interesado en recuperar tu sonrisa con implantes dentales?</p>
+                <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="detail-image">
+            <img src={asset('images/especialidades/implantologia.webp')} alt="Implantología Dental" />
+            <div class="detail-gallery">
+              <img src={asset('images/especialidades/implantologia-2.webp')} alt="Procedimiento de implantología clínica" />
+              <img src={asset('images/especialidades/implantologia-3.webp')} alt="Resultado estético de implantes dentales" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .especialidad-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  
+  .detail-content h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    margin-bottom: 30px;
+  }
+  
+  .detail-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 25px;
+  }
+  
+  .detail-text h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin: 40px 0 20px;
+  }
+  
+  .detail-text h4 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin: 30px 0 15px;
+    font-weight: 600;
+  }
+  
+  .detail-text ul,
+  .detail-text ol {
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .detail-text li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 12px;
+  }
+  
+  .detail-text strong {
+    color: var(--dark);
+  }
+  
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+  
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .detail-gallery img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .detail-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .detail-image {
+      position: static;
+    }
+
+    .detail-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+  }
+</style>

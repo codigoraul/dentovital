@@ -1,0 +1,118 @@
+---
+---
+
+<section class="section nosotros" id="nosotros">
+  <div class="container">
+    <h2 class="section-title">Nosotros</h2>
+    
+    <div class="nosotros-content">
+      <div class="nosotros-image">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Clínica Dentovital" />
+      </div>
+      
+      <div class="nosotros-text">
+        <p>
+          Clínica Dentovital es un centro odontológico en Antofagasta 
+          orientado a tratamientos modernos con tecnología digital y un 
+          enfoque estético y funcional.
+        </p>
+        <p>
+          Nuestro objetivo es entregar diagnósticos precisos y tratamientos 
+          personalizados para mejorar la salud y estética de nuestros pacientes.
+        </p>
+        <p>
+          Contamos con profesionales altamente capacitados y equipamiento 
+          de última generación para ofrecerte la mejor atención odontológica 
+          en Antofagasta.
+        </p>
+        
+        <div class="nosotros-stats">
+          <div class="stat">
+            <h3>10+</h3>
+            <p>Años de experiencia</p>
+          </div>
+          <div class="stat">
+            <h3>5000+</h3>
+            <p>Pacientes satisfechos</p>
+          </div>
+          <div class="stat">
+            <h3>100%</h3>
+            <p>Compromiso con la calidad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nosotros {
+    background: #fff;
+  }
+  
+  .nosotros-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .nosotros-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nosotros-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+  
+  .nosotros-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .stat {
+    text-align: center;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 10px;
+  }
+  
+  .stat h3 {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  
+  .stat p {
+    font-size: 0.9rem;
+    color: var(--dark);
+    margin: 0;
+  }
+  
+  @media (max-width: 968px) {
+    .nosotros-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .nosotros-image img {
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nosotros-stats {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>

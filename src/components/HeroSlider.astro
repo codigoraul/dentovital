@@ -1,0 +1,283 @@
+---
+---
+
+<section class="hero" id="inicio">
+  <div class="slider">
+    <div class="slide active">
+      <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1920&q=80')"></div>
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <div class="container">
+          <h1>Implantes Dentales de Precisión</h1>
+          <p>Recupera tu sonrisa con planificación digital y técnica de última generación.</p>
+          <div class="slide-buttons">
+            <a href="https://wa.me/56937725890?text=Hola,%20quiero%20agendar%20una%20hora" target="_blank" class="btn btn-primary">Agendar Hora</a>
+            <a href="#servicios" class="btn btn-outline">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80')"></div>
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <div class="container">
+          <h1>Transforma Tu Sonrisa</h1>
+          <p>Carillas, blanqueamiento y diseño digital para una sonrisa perfecta.</p>
+          <div class="slide-buttons">
+            <a href="https://wa.me/56937725890?text=Hola,%20quiero%20agendar%20una%20hora" target="_blank" class="btn btn-primary">Agendar Hora</a>
+            <a href="#servicios" class="btn btn-outline">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slide">
+      <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80')"></div>
+      <div class="overlay"></div>
+      <div class="slide-content">
+        <div class="container">
+          <h1>Estética Facial & Armonización</h1>
+          <p>Botox, ácido hialurónico y tratamientos regenerativos para rejuvenecer tu rostro.</p>
+          <div class="slide-buttons">
+            <a href="https://wa.me/56937725890?text=Hola,%20quiero%20agendar%20una%20hora" target="_blank" class="btn btn-primary">Agendar Hora</a>
+            <a href="#estetica-facial" class="btn btn-outline">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <button class="slider-btn prev" aria-label="Anterior">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <button class="slider-btn next" aria-label="Siguiente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+  
+  <div class="slider-dots">
+    <button class="dot active" data-slide="0"></button>
+    <button class="dot" data-slide="1"></button>
+    <button class="dot" data-slide="2"></button>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 700px;
+    overflow: hidden;
+    margin-top: 72px;
+  }
+  
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 240, 232, 0.75);
+  }
+  
+  .slide-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  .slide-content h1 {
+    font-size: 3.5rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+  
+  .slide-content p {
+    font-size: 1.3rem;
+    color: var(--dark-mid);
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+  
+  .slide-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(198, 165, 92, 0.8);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .slider-btn:hover {
+    background: var(--gold);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .slider-btn.prev {
+    left: 30px;
+  }
+  
+  .slider-btn.next {
+    right: 30px;
+  }
+  
+  .slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dot.active {
+    background: var(--gold);
+    transform: scale(1.2);
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      height: 600px;
+      margin-top: 62px;
+    }
+    
+    .slide-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .slide-content p {
+      font-size: 1.1rem;
+    }
+    
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .slider-btn.prev {
+      left: 15px;
+    }
+    
+    .slider-btn.next {
+      right: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero {
+      height: 500px;
+    }
+    
+    .slide-content h1 {
+      font-size: 2rem;
+    }
+    
+    .slide-content p {
+      font-size: 1rem;
+    }
+    
+    .slide-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const totalSlides = slides.length;
+  
+  function showSlide(index: number) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+  
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+  
+  document.querySelector('.next')?.addEventListener('click', nextSlide);
+  document.querySelector('.prev')?.addEventListener('click', prevSlide);
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+    });
+  });
+  
+  setInterval(nextSlide, 5000);
+</script>

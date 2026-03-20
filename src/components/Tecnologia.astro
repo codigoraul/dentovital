@@ -1,0 +1,138 @@
+---
+const tecnologias = [
+  {
+    titulo: "Escáner intraoral",
+    descripcion: "Sin moldes tradicionales. Captura digital precisa de tu boca en minutos.",
+    icono: "📷"
+  },
+  {
+    titulo: "Planificación digital de implantes",
+    descripcion: "Simulación 3D para ubicación exacta y resultados predecibles.",
+    icono: "💻"
+  },
+  {
+    titulo: "Cirugía guiada",
+    descripcion: "Procedimientos mínimamente invasivos con guías quirúrgicas personalizadas.",
+    icono: "🎯"
+  },
+  {
+    titulo: "Restauraciones diseñadas digitalmente",
+    descripcion: "Coronas y carillas diseñadas con precisión milimétrica.",
+    icono: "⚙️"
+  }
+];
+---
+
+<section class="section tecnologia" id="tecnologia">
+  <div class="container">
+    <h2 class="section-title">Tecnología Digital</h2>
+    <p class="section-subtitle">Equipamiento de última generación para tratamientos precisos</p>
+    
+    <div class="grid grid-2">
+      {tecnologias.map(tech => (
+        <div class="card tech-card">
+          <div class="tech-icono">{tech.icono}</div>
+          <h3>{tech.titulo}</h3>
+          <p>{tech.descripcion}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="beneficios">
+      <h3>Beneficios de la tecnología digital</h3>
+      <div class="beneficios-list">
+        <div class="beneficio">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Mayor precisión</span>
+        </div>
+        <div class="beneficio">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Menos invasivo</span>
+        </div>
+        <div class="beneficio">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Recuperación más rápida</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tecnologia {
+    background: var(--cream);
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: var(--dark-mid);
+    font-size: 1.1rem;
+    margin-top: -30px;
+    margin-bottom: 50px;
+  }
+  
+  .tech-card {
+    text-align: center;
+  }
+  
+  .tech-icono {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .tech-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+  }
+  
+  .tech-card p {
+    color: var(--dark-mid);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .beneficios {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .beneficios h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 30px;
+  }
+  
+  .beneficios-list {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .beneficio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  
+  .beneficio svg {
+    color: var(--gold);
+  }
+  
+  @media (max-width: 768px) {
+    .beneficios-list {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>

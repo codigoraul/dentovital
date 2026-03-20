@@ -1,0 +1,304 @@
+---
+import { resolveAsset, resolveRoute } from '../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+const route = (path = '') => resolveRoute(Astro, path);
+---
+
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <a href={route()} class="logo">
+        <img src={asset('logo-dentovital.png')} alt="Clínica Dentovital" />
+      </a>
+      
+      <nav class="nav" id="nav">
+        <a href={route()}>Inicio</a>
+        <a href={route('especialidades')}>Especialidades</a>
+        <a href={route('servicios')}>Servicios</a>
+        <a href={route('estetica-facial')}>Estética Facial</a>
+        <div class="nav-dropdown">
+          <a href={route('equipo')} class="dropdown-toggle">Equipo</a>
+          <div class="dropdown-menu">
+            <a href={route('equipo')}>Nuestro Equipo</a>
+            <a href={route('nosotros')}>Nosotros</a>
+          </div>
+        </div>
+        <a href={route('contacto')}>Contacto</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">
+          Agendar Hora
+        </a>
+      </div>
+      
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+  
+  .logo img {
+    height: 62px;
+    width: auto;
+  }
+
+  .nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .nav a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav a:hover {
+    color: var(--primary);
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
+  }
+  
+  .nav-dropdown {
+    position: relative;
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dark);
+    min-width: 200px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-top: 5px;
+  }
+  
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dropdown-menu a:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .dropdown-menu a:hover {
+    background: rgba(198, 165, 92, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+  }
+  
+  .dropdown-menu a::after {
+    display: none;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    padding: 5px;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  @media (max-width: 968px) {
+    .nav {
+      position: fixed;
+      top: 72px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 72px);
+      background: rgba(26, 26, 26, 0.98);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 50px 0;
+      transition: left 0.3s ease;
+    }
+    
+    .nav.active {
+      left: 0;
+    }
+    
+    .nav a {
+      font-size: 1.2rem;
+    }
+    
+    .nav-dropdown {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .nav-dropdown .dropdown-toggle {
+      text-align: center;
+    }
+    
+    .dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background: rgba(0, 0, 0, 0.3);
+      margin-top: 10px;
+      border-radius: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.active .dropdown-menu {
+      max-height: 200px;
+    }
+    
+    .dropdown-menu a {
+      font-size: 1.1rem;
+      padding: 15px 30px;
+    }
+    
+    .hamburger {
+      display: flex;
+    }
+    
+    .header-actions .btn {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo img {
+      height: 40px;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+  
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav?.classList.toggle('active');
+  });
+  
+  const navLinks = nav?.querySelectorAll('a');
+  navLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('active');
+      nav?.classList.remove('active');
+    });
+  });
+  
+  // Toggle dropdown en móvil
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles?.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 968) {
+        e.preventDefault();
+        const dropdown = toggle.parentElement;
+        dropdown?.classList.toggle('active');
+      }
+    });
+  });
+</script>

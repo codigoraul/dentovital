@@ -1,0 +1,276 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import PageHero from '../components/PageHero.astro';
+import { resolveAsset } from '../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+
+const equipo = [
+  {
+    nombre: "Dra. María González",
+    especialidad: "Directora Clínica - Implantología",
+    imagen: "images/equipo/maria-gonzalez.jpg",
+    descripcion: "Especialista en Implantología con más de 15 años de experiencia"
+  },
+  {
+    nombre: "Dr. Carlos Ramírez",
+    especialidad: "Ortodoncista",
+    imagen: "images/equipo/carlos-ramirez.jpg",
+    descripcion: "Experto en ortodoncia invisible y brackets estéticos"
+  },
+  {
+    nombre: "Dra. Patricia Silva",
+    especialidad: "Endodoncista",
+    imagen: "images/equipo/maria-gonzalez.jpg",
+    descripcion: "Especialista en tratamientos de conducto con microscopía"
+  },
+  {
+    nombre: "Dr. Roberto Morales",
+    especialidad: "Rehabilitación Oral",
+    imagen: "images/equipo/roberto-morales.jpg",
+    descripcion: "Experto en prótesis y rehabilitación dental completa"
+  }
+];
+---
+
+<MainLayout title="Nuestro Equipo | Clínica Dentovital" description="Conoce a nuestro equipo de profesionales especializados">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Nuestro Equipo"
+      description="Profesionales especializados comprometidos con tu salud bucal"
+      backgroundImage="images/bg-title/bg-equipo.jpg"
+    />
+    
+    <section class="section equipo-intro">
+      <div class="container">
+        <div class="intro-content">
+          <h2>Expertos en Odontología Moderna</h2>
+         
+        </div>
+      </div>
+    </section>
+    
+    <section class="section equipo-grid-section">
+      <div class="container">
+        <div class="equipo-grid">
+          {equipo.map(miembro => (
+            <div class="equipo-card">
+              <div class="equipo-image">
+                <img src={asset(miembro.imagen)} alt={miembro.nombre} />
+                <div class="equipo-overlay">
+                  <p>{miembro.descripcion}</p>
+                </div>
+              </div>
+              <div class="equipo-info">
+                <h3>{miembro.nombre}</h3>
+                <p class="especialidad">{miembro.especialidad}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <section class="section valores">
+      <div class="container">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <div class="valores-grid">
+          <div class="valor-card">
+            <div class="valor-icon">🎯</div>
+            <h3>Excelencia</h3>
+            <p>Compromiso con la calidad en cada tratamiento</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-icon">❤️</div>
+            <h3>Empatía</h3>
+            <p>Atención personalizada y cercana</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-icon">🔬</div>
+            <h3>Innovación</h3>
+            <p>Tecnología de última generación</p>
+          </div>
+          <div class="valor-card">
+            <div class="valor-icon">🤝</div>
+            <h3>Confianza</h3>
+            <p>Transparencia en cada procedimiento</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .equipo-intro {
+    background: #fff;
+    padding: 60px 0;
+  }
+  
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .intro-content h2 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 25px;
+  }
+  
+  .intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+  
+  .equipo-grid-section {
+    background: var(--cream);
+  }
+  
+  .equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+  
+  .equipo-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .equipo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .equipo-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  .equipo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .equipo-card:hover .equipo-image img {
+    transform: scale(1.05);
+  }
+  
+  .equipo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 30px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .equipo-card:hover .equipo-overlay {
+    transform: translateY(0);
+  }
+  
+  .equipo-overlay p {
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .equipo-info {
+    padding: 25px;
+    text-align: center;
+  }
+  
+  .equipo-info h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  
+  .especialidad {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .valores {
+    background: #fff;
+  }
+  
+  .valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .valor-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--cream);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .valor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .valor-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .valor-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  
+  .valor-card p {
+    color: var(--dark-mid);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .intro-content h2 {
+      font-size: 2rem;
+    }
+    
+    .equipo-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .equipo-image {
+      height: 300px;
+    }
+    
+    .valores-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

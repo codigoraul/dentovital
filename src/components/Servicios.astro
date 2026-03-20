@@ -1,0 +1,121 @@
+---
+const servicios = [
+  {
+    nombre: "Limpieza dental",
+    descripcion: "Profilaxis profesional para mantener tu salud bucal",
+    icono: "🦷"
+  },
+  {
+    nombre: "Blanqueamiento dental",
+    descripcion: "Sonrisa más blanca y brillante con tecnología avanzada",
+    icono: "✨"
+  },
+  {
+    nombre: "Restauraciones",
+    descripcion: "Reparación de piezas dentales con materiales de alta calidad",
+    icono: "🔧"
+  },
+  {
+    nombre: "Extracciones",
+    descripcion: "Procedimientos seguros y con mínimas molestias",
+    icono: "🩺"
+  },
+  {
+    nombre: "Endodoncias",
+    descripcion: "Tratamiento de conducto para salvar tu pieza dental",
+    icono: "💉"
+  },
+  {
+    nombre: "Ortodoncia invisible",
+    descripcion: "Alineadores dentales discretos y efectivos",
+    icono: "😊"
+  },
+  {
+    nombre: "Ortodoncia convencional",
+    descripcion: "Brackets metálicos y cerámicos de alta calidad",
+    icono: "🦷"
+  },
+  {
+    nombre: "Implantes dentales",
+    descripcion: "Reemplazo permanente de piezas dentales perdidas",
+    icono: "⚙️"
+  },
+  {
+    nombre: "Diseño de sonrisa",
+    descripcion: "Planificación digital para tu sonrisa perfecta",
+    icono: "🎨"
+  },
+  {
+    nombre: "Coronas",
+    descripcion: "Prótesis fijas unitarias y plurales de alta estética",
+    icono: "👑"
+  },
+  {
+    nombre: "Prótesis removibles",
+    descripcion: "Soluciones funcionales y estéticas personalizadas",
+    icono: "🦷"
+  },
+  {
+    nombre: "Atención infantil",
+    descripcion: "Cuidado dental especializado para niños",
+    icono: "👶"
+  },
+  {
+    nombre: "Carillas dentales",
+    descripcion: "Láminas ultra delgadas para una sonrisa perfecta",
+    icono: "💎"
+  }
+];
+---
+
+<section class="section servicios" id="servicios">
+  <div class="container">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">Tratamientos odontológicos de última generación</p>
+    
+    <div class="grid grid-3">
+      {servicios.map(servicio => (
+        <div class="card servicio-card">
+          <div class="servicio-icono">{servicio.icono}</div>
+          <h3>{servicio.nombre}</h3>
+          <p>{servicio.descripcion}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicios {
+    background: #fff;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: var(--dark-mid);
+    font-size: 1.1rem;
+    margin-top: -30px;
+    margin-bottom: 50px;
+  }
+  
+  .servicio-card {
+    text-align: center;
+  }
+  
+  .servicio-icono {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .servicio-card h3 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  
+  .servicio-card p {
+    color: var(--dark-mid);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,162 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<MainLayout title="Nosotros | Clínica Dentovital" description="Conoce Clínica Dentovital en Antofagasta">
+  <Header />
+  
+  <main style="margin-top: 90px;">
+    <PageHero 
+      title="Nosotros"
+      description="Odontología moderna y estética facial en Antofagasta"
+      backgroundImage="/images/bg-title/bg-nosotros.webp"
+    />
+    
+    <section class="section">
+      <div class="container">
+        <div class="nosotros-content">
+          <div class="nosotros-image">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Clínica Dentovital" />
+          </div>
+          
+          <div class="nosotros-text">
+            <h2>Clínica Dentovital</h2>
+            <p>
+              Clínica Dentovital es un centro odontológico en Antofagasta 
+              orientado a tratamientos modernos con tecnología digital y un 
+              enfoque estético y funcional.
+            </p>
+            <p>
+              Nuestro objetivo es entregar diagnósticos precisos y tratamientos 
+              personalizados para mejorar la salud y estética de nuestros pacientes.
+            </p>
+            <p>
+              Contamos con profesionales altamente capacitados y equipamiento 
+              de última generación para ofrecerte la mejor atención odontológica 
+              en Antofagasta.
+            </p>
+          </div>
+        </div>
+        
+        <div class="stats-section">
+          <div class="stat-card">
+            <h3>10+</h3>
+            <p>Años de experiencia</p>
+          </div>
+          <div class="stat-card">
+            <h3>5000+</h3>
+            <p>Pacientes satisfechos</p>
+          </div>
+          <div class="stat-card">
+            <h3>100%</h3>
+            <p>Compromiso con la calidad</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .hero-page {
+    background: var(--dark);
+    color: var(--white);
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+  
+  .hero-page h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-page p {
+    font-size: 1.2rem;
+    color: var(--primary-light);
+  }
+  
+  .nosotros-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  
+  .nosotros-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nosotros-text h2 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 25px;
+  }
+  
+  .nosotros-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+  
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--cream);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-card h3 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  
+  .stat-card p {
+    font-size: 1rem;
+    color: var(--dark);
+  }
+  
+  @media (max-width: 968px) {
+    .hero-page h1 {
+      font-size: 2.2rem;
+    }
+    
+    .nosotros-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .nosotros-image img {
+      height: 400px;
+    }
+    
+    .stats-section {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
