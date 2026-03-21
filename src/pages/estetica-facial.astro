@@ -4,19 +4,20 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppBtn from '../components/WhatsAppBtn.astro';
 import PageHero from '../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../lib/assets';
 
 const procedimientos = [
-  "Armonización facial",
-  "Botox / Dysport",
-  "Ácido hialurónico",
-  "Bioestimuladores de colágeno",
-  "Hilos tensores",
-  "Hilos revitalizantes",
-  "Exosomas + ADN salmón",
-  "Mesoterapia: Pink Glow, Orchid Glow, Amber Glow, NCTF",
-  "HIFU",
-  "Endolaser",
-  "Bichectomía"
+  { nombre: "Armonización facial", imagen: "images/estetica-facial/Armonizacion-facial.webp" },
+  { nombre: "Botox / Dysport", imagen: "images/estetica-facial/Botox-Dysport.webp" },
+  { nombre: "Ácido hialurónico", imagen: "images/estetica-facial/Acido-hialuronico.webp" },
+  { nombre: "Bioestimuladores de colágeno", imagen: "images/estetica-facial/Bioestimuladores-de-colageno.webp" },
+  { nombre: "Hilos tensores", imagen: "images/estetica-facial/Hilos-tensores.webp" },
+  { nombre: "Hilos revitalizantes", imagen: "images/estetica-facial/Hilos-revitalizantes.webp" },
+  { nombre: "Exosomas + ADN salmón", imagen: "images/estetica-facial/Exosomas-ADN-salmon.webp" },
+  { nombre: "Mesoterapia: Pink Glow, Orchid Glow, Amber Glow, NCTF", imagen: "images/estetica-facial/MesoterapiaPink-Glow.webp" },
+  { nombre: "HIFU", imagen: "images/estetica-facial/HIFU.webp" },
+  { nombre: "Endolaser", imagen: "images/estetica-facial/Endolaser.webp" },
+  { nombre: "Bichectomía", imagen: "images/estetica-facial/Bichectomia.webp" }
 ];
 ---
 
@@ -33,22 +34,23 @@ const procedimientos = [
     <section class="section">
       <div class="container">
         <div class="intro-text">
-          <p>
-            En Clínica Dentovital combinamos la odontología estética con tratamientos 
-            faciales de última generación para ofrecerte una armonización completa de tu rostro.
-          </p>
+         <h2 class="section-title">Tratamientos de estética facial</h2>
           <p>
             Nuestros procedimientos son mínimamente invasivos, seguros y con resultados naturales.
           </p>
         </div>
         
+        
+        
         <div class="procedimientos-grid">
           {procedimientos.map(proc => (
-            <div class="procedimiento-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>{proc}</span>
+            <div class="procedimiento-card">
+              <div class="procedimiento-image">
+                <img src={resolveAsset(Astro, proc.imagen)} alt={proc.nombre} />
+              </div>
+              <div class="procedimiento-content">
+                <h3>{proc.nombre}</h3>
+              </div>
             </div>
           ))}
         </div>
@@ -86,7 +88,7 @@ const procedimientos = [
   
   .intro-text {
     max-width: 800px;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
     text-align: center;
   }
   
@@ -96,47 +98,75 @@ const procedimientos = [
     margin-bottom: 20px;
     color: var(--dark-mid);
   }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    color: var(--dark);
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
   
   .procedimientos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     margin-bottom: 60px;
   }
   
-  .procedimiento-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 25px;
+  .procedimiento-card {
     background: #fff;
-    border-left: 3px solid var(--primary);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
   }
   
-  .procedimiento-item:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translateX(5px);
+  .procedimiento-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
   }
   
-  .procedimiento-item svg {
-    color: var(--primary);
-    flex-shrink: 0;
+  .procedimiento-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
   }
   
-  .procedimiento-item span {
-    font-size: 1rem;
-    font-weight: 500;
+  .procedimiento-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .procedimiento-card:hover .procedimiento-image img {
+    transform: scale(1.05);
+  }
+  
+  .procedimiento-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .procedimiento-content h3 {
+    font-size: 1.5rem;
     color: var(--dark);
+    font-weight: 600;
+    margin: 0;
   }
   
   .cta-section {
     text-align: center;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
+    .procedimientos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
     .hero-page h1 {
       font-size: 2.2rem;
     }
