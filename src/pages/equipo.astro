@@ -9,29 +9,52 @@ import { resolveAsset } from '../lib/assets';
 const asset = (path: string) => resolveAsset(Astro, path);
 
 const equipo = [
+  
+
   {
-    nombre: "Dra. María González",
-    especialidad: "Directora Clínica - Implantología",
-    imagen: "images/equipo/maria-gonzalez.jpg",
-    descripcion: "Especialista en Implantología con más de 15 años de experiencia"
+    nombre: "Dr. Miguel Cañas Vergara",
+    especialidad: "Cirujano Dentista",
+    imagen: "images/equipo/miguel-canas.webp",
+    descripcion: "Especialista en implantología bucomaxilofacial."
   },
   {
-    nombre: "Dr. Carlos Ramírez",
-    especialidad: "Ortodoncista",
-    imagen: "images/equipo/carlos-ramirez.jpg",
-    descripcion: "Experto en ortodoncia invisible y brackets estéticos"
+
+    nombre: "Dra. Nicole Urzua Varas",
+    especialidad: "Cirujana Dentista",
+    imagen: "images/equipo/nicole-urzua.webp",
+    descripcion: "Especialista en armonización facial"
   },
   {
-    nombre: "Dra. Patricia Silva",
-    especialidad: "Endodoncista",
-    imagen: "images/equipo/maria-gonzalez.jpg",
-    descripcion: "Especialista en tratamientos de conducto con microscopía"
+    nombre: "Barbara Michea Pinto",
+    especialidad: "Cirujana Dentista",
+    imagen: "images/equipo/barbara-michea.webp",
+    descripcion: "Especialista en armonización facial"
   },
   {
-    nombre: "Dr. Roberto Morales",
-    especialidad: "Rehabilitación Oral",
-    imagen: "images/equipo/roberto-morales.jpg",
-    descripcion: "Experto en prótesis y rehabilitación dental completa"
+    nombre: "Dr. Cristobal Soto Tello",
+    especialidad: "Cirujano Dentista",
+    imagen: "images/equipo/cristobal-soto.webp",
+    descripcion: "Especialista en endodoncia"
+  }//Dra. Camila Cuello Araya
+  // Cirujana Dentista
+  ,
+  {
+    nombre: "Dra. Camila Cuello Araya",
+    especialidad: "Cirujana Dentista",
+    imagen: "images/equipo/camila-cuello.webp",
+    descripcion: ""
+  },
+  {
+    nombre: "Dr. Richard Beltrán Romero",
+    especialidad: "Cirujano Dentista",
+    imagen: "images/equipo/richard-beltran.webp",
+    descripcion: "Especialista en periodoncia "
+  } ,
+  {
+    nombre: "Dr. Diego Manzanares Arancibia",
+    especialidad: "Cirujano Dentista",
+    imagen: "images/equipo/diego-manzanares.webp",
+    descripcion: "Especialista en ortodoncia y ortopedia dentomaxilofacial"
   }
 ];
 ---
@@ -57,9 +80,9 @@ const equipo = [
     
     <section class="section equipo-grid-section">
       <div class="container">
-        <div class="equipo-grid">
+        <div class="equipo-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {equipo.map(miembro => (
-            <div class="equipo-card">
+            <div class="equipo-card max-w-[300px]">
               <div class="equipo-image">
                 <img src={asset(miembro.imagen)} alt={miembro.nombre} />
                 <div class="equipo-overlay">
@@ -81,22 +104,43 @@ const equipo = [
         <h2 class="section-title">Nuestros Valores</h2>
         <div class="valores-grid">
           <div class="valor-card">
-            <div class="valor-icon">🎯</div>
+            <div class="valor-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
             <h3>Excelencia</h3>
             <p>Compromiso con la calidad en cada tratamiento</p>
           </div>
           <div class="valor-card">
-            <div class="valor-icon">❤️</div>
+            <div class="valor-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
             <h3>Empatía</h3>
             <p>Atención personalizada y cercana</p>
           </div>
           <div class="valor-card">
-            <div class="valor-icon">🔬</div>
+            <div class="valor-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
             <h3>Innovación</h3>
             <p>Tecnología de última generación</p>
           </div>
           <div class="valor-card">
-            <div class="valor-icon">🤝</div>
+            <div class="valor-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
             <h3>Confianza</h3>
             <p>Transparencia en cada procedimiento</p>
           </div>
@@ -142,6 +186,7 @@ const equipo = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+    justify-items: center;
   }
   
   .equipo-card {
@@ -150,6 +195,8 @@ const equipo = [
     overflow: hidden;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 330px;
   }
   
   .equipo-card:hover {
@@ -168,6 +215,7 @@ const equipo = [
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     transition: transform 0.3s ease;
   }
   
@@ -239,8 +287,12 @@ const equipo = [
   }
   
   .valor-icon {
-    font-size: 3rem;
     margin-bottom: 20px;
+    color: var(--primary);
+  }
+  
+  .valor-icon svg {
+    stroke: var(--primary);
   }
   
   .valor-card h3 {
