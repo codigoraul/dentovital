@@ -9,7 +9,11 @@ const asset = (path: string) => resolveAsset(Astro, path);
 const route = (path = '') => resolveRoute(Astro, path);
 ---
 
-<MainLayout>
+<MainLayout
+  title="Dentista en Antofagasta | Implantes Dentales | Clínica Dentovital"
+  description="Clínica dental en Antofagasta especializada en implantes dentales, ortodoncia, rehabilitación oral y estética facial. Agenda tu hora hoy."
+  canonical="https://dentovital.cl"
+>
 	<Header />
 	
 	<main style="margin-top: 90px;">

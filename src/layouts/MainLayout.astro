@@ -4,11 +4,15 @@ import { resolveAsset } from '../lib/assets';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  ogImage?: string;
 }
 
-const { 
+const {
   title = "Dentista en Antofagasta | Implantes Dentales | Clínica Dentovital",
-  description = "Clínica dental en Antofagasta especializada en implantes dentales, rehabilitación oral, odontología digital y estética facial. Agenda tu hora hoy."
+  description = "Clínica dental en Antofagasta especializada en implantes dentales, rehabilitación oral, odontología digital y estética facial. Agenda tu hora hoy.",
+  canonical = "https://dentovital.cl",
+  ogImage = "https://dentovital.cl/og-image.jpg"
 } = Astro.props;
 
 const faviconUrl = resolveAsset(Astro, 'logo-dentovital.png');
@@ -21,9 +25,28 @@ const faviconUrl = resolveAsset(Astro, 'logo-dentovital.png');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <meta name="keywords" content="dentista en Antofagasta, implantes dentales Antofagasta, clínica dental Antofagasta, botox Antofagasta, estética facial Antofagasta">
+  <meta name="keywords" content="dentista en Antofagasta, implantes dentales Antofagasta, clínica dental Antofagasta, botox Antofagasta, estética facial Antofagasta, ortodoncia Antofagasta, endodoncia Antofagasta, rehabilitación oral Antofagasta">
+  <link rel="canonical" href={canonical}>
   <link rel="icon" type="image/png" href={faviconUrl}>
-  <link rel="canonical" href="https://dentovital.cl">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Clínica Dentovital">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Indexación -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Clínica Dentovital">
 </head>
 <body>
   <slot />
