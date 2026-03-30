@@ -1,0 +1,132 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Endolaser | Clínica Dentovital" description="Tratamiento Endolaser en Antofagasta. Reafirma la piel, redefine el contorno facial y reduce grasa localizada con tecnología láser.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Endolaser"
+      description="Reafirma, redefine y reduce grasa localizada con tecnología láser"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Endolaser.webp')} alt="Endolaser" />
+          </div>
+
+          <div class="detail-content">
+            <h2 class="servicio-title">Endolaser</h2>
+
+            <p>
+              El Endolaser es un tratamiento de última generación que permite
+              <strong>reafirmar la piel, redefinir el contorno facial y reducir grasa localizada</strong>,
+              logrando un efecto lifting mediante tecnología láser mínimamente invasiva.
+            </p>
+            <p>
+              En Clínica Dentovital trabajamos con un enfoque <strong>preciso y personalizado</strong>,
+              combinando conocimiento anatómico y tecnología avanzada para obtener resultados
+              <strong>naturales, definidos y de alto nivel estético</strong>.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>
+              El Endolaser utiliza una microfibra óptica que se introduce bajo la piel para aplicar
+              energía láser directamente en los tejidos, generando:
+            </p>
+            <ul>
+              <li><strong>Contracción inmediata de la piel</strong></li>
+              <li><strong>Estimulación profunda de colágeno</strong></li>
+              <li><strong>Reducción de grasa localizada</strong></li>
+              <li><strong>Mejora de la firmeza y calidad de la piel</strong></li>
+            </ul>
+
+            <h3>¿Qué zonas se pueden tratar?</h3>
+            <ul>
+              <li>Papada</li>
+              <li>Línea mandibular</li>
+              <li>Mejillas</li>
+              <li>Surcos faciales</li>
+              <li>Cuello</li>
+            </ul>
+
+            <h3>Resultados visibles y progresivos</h3>
+            <p>
+              El efecto tensor se aprecia desde el inicio, pero continúa mejorando durante los siguientes meses
+              gracias a la regeneración de colágeno. Se obtiene un rostro <strong>más definido, firme y rejuvenecido</strong>,
+              sin alterar la naturalidad.
+            </p>
+
+            <h3>Procedimiento mínimamente invasivo</h3>
+            <p>
+              Se realiza con anestesia local, con una microincisión prácticamente imperceptible.
+              El tiempo de recuperación es corto, permitiendo retomar actividades habituales en pocos días.
+            </p>
+
+            <h3>¿Cuánto duran los resultados?</h3>
+            <p>
+              Los resultados pueden mantenerse entre <strong>12 a 24 meses</strong>, dependiendo de cada paciente
+              y su proceso de envejecimiento.
+            </p>
+
+            <h3>Define tu rostro sin cirugía</h3>
+            <p>
+              El Endolaser es ideal para quienes buscan un tratamiento más potente que opciones superficiales,
+              con resultados visibles en firmeza y contorno, pero <strong>sin recurrir a cirugía tradicional</strong>.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres redefinir tu contorno facial?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail { padding: 80px 0; background: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 50px; align-items: start; }
+  .detail-image { position: sticky; top: 120px; }
+  .detail-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+  .detail-content { padding-top: 0; }
+  .servicio-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 25px; font-weight: 700; line-height: 1.2; }
+  .detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 20px; }
+  .detail-content h3 { font-size: 1.5rem; color: var(--dark); margin: 35px 0 15px; font-weight: 600; }
+  .detail-content ul { margin-left: 25px; margin-bottom: 25px; }
+  .detail-content li { font-size: 1.05rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 8px; }
+  .detail-content strong { color: var(--dark); }
+  .cta-box { background: var(--cream); padding: 35px; border-radius: 10px; text-align: center; margin-top: 40px; }
+  .cta-box p { font-size: 1.2rem; color: var(--dark); margin-bottom: 20px; }
+  .back-link { margin-top: 30px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 1.05rem; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+  .back-link a:hover { color: var(--primary-dark, var(--dark)); }
+  .back-link .arrow { font-size: 1.2rem; }
+  @media (max-width: 968px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+    .detail-image { position: static; max-width: 500px; margin: 0 auto; }
+    .servicio-title { font-size: 1.8rem; }
+  }
+</style>

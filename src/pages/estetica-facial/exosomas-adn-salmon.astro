@@ -1,0 +1,135 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Exosomas + ADN de Salmón | Clínica Dentovital" description="Tratamiento con exosomas y ADN de salmón en Antofagasta. Regeneración celular avanzada para una piel más firme, luminosa y rejuvenecida.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Exosomas + ADN de Salmón"
+      description="Regeneración celular avanzada para una piel visiblemente rejuvenecida"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Exosomas-ADN-salmon.webp')} alt="Exosomas + ADN de Salmón" />
+          </div>
+
+          <div class="detail-content">
+            <h2 class="servicio-title">Exosomas + ADN de Salmón</h2>
+
+            <p>
+              El tratamiento con <strong>exosomas + ADN de salmón (polinucleótidos)</strong> representa una de las
+              terapias más avanzadas en medicina estética, enfocada en <strong>regenerar la piel desde el nivel celular</strong>,
+              mejorando su calidad, luminosidad y firmeza de forma natural.
+            </p>
+            <p>
+              En Clínica Dentovital utilizamos esta combinación innovadora para lograr un efecto de
+              <strong>rejuvenecimiento profundo</strong>, ideal para pacientes que buscan resultados visibles
+              sin alterar los volúmenes ni la estructura del rostro.
+            </p>
+
+            <h3>¿Qué son los exosomas y el ADN de salmón?</h3>
+            <ul>
+              <li><strong>Exosomas:</strong> son pequeñas vesículas celulares que actúan como mensajeros biológicos, estimulando la regeneración, reparación tisular y producción de colágeno.</li>
+              <li><strong>ADN de salmón (polinucleótidos):</strong> promueve la reparación celular, mejora la hidratación y aumenta la elasticidad de la piel.</li>
+            </ul>
+            <p>
+              La combinación de ambos potencia un efecto sinérgico de <strong>bioestimulación intensiva y regeneración cutánea</strong>.
+            </p>
+
+            <h3>Beneficios principales</h3>
+            <ul>
+              <li>Mejora la calidad y textura de la piel</li>
+              <li>Aumenta la hidratación profunda</li>
+              <li>Estimula colágeno y elastina</li>
+              <li>Disminuye líneas finas</li>
+              <li>Mejora ojeras y tono irregular</li>
+              <li>Aporta luminosidad ("efecto glow")</li>
+            </ul>
+
+            <h3>¿En qué zonas se puede aplicar?</h3>
+            <ul>
+              <li>Rostro completo</li>
+              <li>Ojeras</li>
+              <li>Cuello</li>
+            </ul>
+
+            <h3>Resultados naturales y progresivos</h3>
+            <p>
+              Los cambios comienzan a notarse en las primeras semanas, mejorando progresivamente con el tiempo.
+              El resultado es una piel <strong>más firme, luminosa, hidratada y rejuvenecida</strong>, sin alterar la expresión facial.
+            </p>
+
+            <h3>Procedimiento mínimamente invasivo</h3>
+            <p>
+              Se realiza mediante utilización de dermapen. Es un tratamiento ambulatorio, con rápida recuperación y mínimas molestias.
+            </p>
+
+            <h3>¿Cuántas sesiones se recomiendan?</h3>
+            <p>
+              Generalmente se indican entre <strong>2 a 3 sesiones</strong>, separadas cada 3-4 semanas
+              dependiendo del estado de la piel y los objetivos del paciente.
+            </p>
+
+            <h3>Regenera tu piel desde el origen</h3>
+            <p>
+              Exosomas + ADN de salmón es ideal para quienes buscan un tratamiento innovador que
+              <strong>mejore la piel desde dentro</strong>, logrando resultados naturales, progresivos y de alta calidad estética.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres regenerar tu piel con tecnología de última generación?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail { padding: 80px 0; background: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 50px; align-items: start; }
+  .detail-image { position: sticky; top: 120px; }
+  .detail-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+  .detail-content { padding-top: 0; }
+  .servicio-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 25px; font-weight: 700; line-height: 1.2; }
+  .detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 20px; }
+  .detail-content h3 { font-size: 1.5rem; color: var(--dark); margin: 35px 0 15px; font-weight: 600; }
+  .detail-content ul { margin-left: 25px; margin-bottom: 25px; }
+  .detail-content li { font-size: 1.05rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 8px; }
+  .detail-content strong { color: var(--dark); }
+  .cta-box { background: var(--cream); padding: 35px; border-radius: 10px; text-align: center; margin-top: 40px; }
+  .cta-box p { font-size: 1.2rem; color: var(--dark); margin-bottom: 20px; }
+  .back-link { margin-top: 30px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 1.05rem; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+  .back-link a:hover { color: var(--primary-dark, var(--dark)); }
+  .back-link .arrow { font-size: 1.2rem; }
+  @media (max-width: 968px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+    .detail-image { position: static; max-width: 500px; margin: 0 auto; }
+    .servicio-title { font-size: 1.8rem; }
+  }
+</style>

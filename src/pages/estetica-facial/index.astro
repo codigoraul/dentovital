@@ -1,23 +1,23 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import WhatsAppBtn from '../components/WhatsAppBtn.astro';
-import PageHero from '../components/PageHero.astro';
-import { resolveAsset, resolveRoute } from '../lib/assets';
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
 
 const procedimientos = [
-  { nombre: "Armonización facial", imagen: "images/estetica-facial/Armonizacion-facial.webp" },
-  { nombre: "Botox / Dysport", imagen: "images/estetica-facial/Botox-Dysport.webp" },
-  { nombre: "Ácido hialurónico", imagen: "images/estetica-facial/Acido-hialuronico.webp" },
-  { nombre: "Bioestimuladores de colágeno", imagen: "images/estetica-facial/Bioestimuladores-de-colageno.webp" },
-  { nombre: "Hilos tensores", imagen: "images/estetica-facial/Hilos-tensores.webp" },
-  { nombre: "Hilos revitalizantes", imagen: "images/estetica-facial/Hilos-revitalizantes.webp" },
-  { nombre: "Exosomas + ADN salmón", imagen: "images/estetica-facial/Exosomas-ADN-salmon.webp" },
-  { nombre: "Mesoterapia: Pink Glow, Orchid Glow, Amber Glow, NCTF", imagen: "images/estetica-facial/MesoterapiaPink-Glow.webp" },
-  { nombre: "HIFU", imagen: "images/estetica-facial/HIFU.webp" },
-  { nombre: "Endolaser", imagen: "images/estetica-facial/Endolaser.webp" },
-  { nombre: "Bichectomía", imagen: "images/estetica-facial/Bichectomia.webp" }
+  { nombre: "Armonización facial", imagen: "images/estetica-facial/Armonizacion-facial.webp", link: "/estetica-facial/armonizacion-facial-acido-hialuronico" },
+  { nombre: "Botox / Dysport", imagen: "images/estetica-facial/Botox-Dysport.webp", link: "/estetica-facial/botox-dysport" },
+  { nombre: "Ácido hialurónico", imagen: "images/estetica-facial/Acido-hialuronico.webp", link: "/estetica-facial/acido-hialuronico" },
+  { nombre: "Bioestimuladores de colágeno", imagen: "images/estetica-facial/Bioestimuladores-de-colageno.webp", link: "/estetica-facial/bioestimuladores-de-colageno" },
+  { nombre: "Hilos tensores", imagen: "images/estetica-facial/Hilos-tensores.webp", link: "/estetica-facial/hilos-tensores" },
+  { nombre: "Hilos revitalizantes", imagen: "images/estetica-facial/Hilos-revitalizantes.webp", link: "/estetica-facial/hilos-revitalizantes" },
+  { nombre: "Exosomas + ADN salmón", imagen: "images/estetica-facial/Exosomas-ADN-salmon.webp", link: "/estetica-facial/exosomas-adn-salmon" },
+  { nombre: "Mesoterapia: Pink Glow, Orchid Glow, Amber Glow, NCTF", imagen: "images/estetica-facial/MesoterapiaPink-Glow.webp", link: "/estetica-facial/mesoterapias" },
+  { nombre: "HIFU", imagen: "images/estetica-facial/HIFU.webp", link: "/estetica-facial/hifu-12d" },
+  { nombre: "Endolaser", imagen: "images/estetica-facial/Endolaser.webp", link: "/estetica-facial/endolaser" },
+  { nombre: "Bichectomía", imagen: "images/estetica-facial/Bichectomia.webp", link: "/estetica-facial/bichectomia" }
 ];
 ---
 
@@ -43,16 +43,28 @@ const procedimientos = [
         
         
         <div class="procedimientos-grid">
-          {procedimientos.map(proc => (
-            <div class="procedimiento-card">
-              <div class="procedimiento-image">
-                <img src={resolveAsset(Astro, proc.imagen)} alt={proc.nombre} />
+          {procedimientos.map(proc => {
+            const cardContent = (
+              <>
+                <div class="procedimiento-image">
+                  <img src={resolveAsset(Astro, proc.imagen)} alt={proc.nombre} />
+                </div>
+                <div class="procedimiento-content">
+                  <h3>{proc.nombre}</h3>
+                  {proc.link && <span class="ver-mas">Ver más &rarr;</span>}
+                </div>
+              </>
+            );
+            return proc.link ? (
+              <a href={resolveRoute(Astro, proc.link)} class="procedimiento-card procedimiento-link">
+                {cardContent}
+              </a>
+            ) : (
+              <div class="procedimiento-card">
+                {cardContent}
               </div>
-              <div class="procedimiento-content">
-                <h3>{proc.nombre}</h3>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div class="cta-section">
@@ -154,6 +166,25 @@ const procedimientos = [
     color: var(--dark);
     font-weight: 600;
     margin: 0;
+  }
+
+  .procedimiento-link {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .procedimiento-link:hover .ver-mas {
+    color: var(--primary-dark, var(--dark));
   }
   
   .cta-section {

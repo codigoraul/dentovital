@@ -1,0 +1,118 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Bichectomía | Clínica Dentovital" description="Bichectomía en Antofagasta. Afina tu rostro de forma definitiva con un procedimiento mínimamente invasivo.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Bichectomía"
+      description="Afina tu rostro de forma definitiva y resalta tus contornos faciales"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Bichectomia.webp')} alt="Bichectomía" />
+          </div>
+
+          <div class="detail-content">
+            <h2 class="servicio-title">Bichectomía</h2>
+
+            <p>
+              La bichectomía es un procedimiento quirúrgico mínimamente invasivo que permite
+              <strong>afinar de forma definitiva el rostro y resaltar los contornos faciales</strong>,
+              mediante la extracción de las bolas de Bichat (acúmulos de grasa ubicados en las mejillas).
+            </p>
+            <p>
+              En Clínica Dentovital realizamos este procedimiento con un enfoque
+              <strong>estético y anatómico preciso</strong>, buscando resultados
+              <strong>naturales, armónicos y elegantes</strong>, sin alterar la esencia del rostro.
+            </p>
+
+            <h3>¿Qué es la bichectomía?</h3>
+            <p>
+              Es una cirugía ambulatoria en la que se extrae la grasa profunda de las mejillas, logrando:
+            </p>
+            <ul>
+              <li>Rostro más delgado y estilizado</li>
+              <li>Mayor definición de pómulos</li>
+              <li>Mejora del contorno facial</li>
+              <li>Apariencia más armónica y elegante</li>
+            </ul>
+
+            <h3>¿Para quién está indicada?</h3>
+            <ul>
+              <li>Personas con rostro redondeado o mejillas voluminosas</li>
+              <li>Pacientes que buscan mayor definición facial</li>
+              <li>Quienes desean un perfil más estilizado sin procedimientos repetitivos</li>
+            </ul>
+
+            <h3>Resultados naturales y progresivos</h3>
+            <p>
+              El cambio inicial puede apreciarse en las primeras semanas, pero el resultado final se observa
+              a medida que disminuye la inflamación. El objetivo es lograr un rostro
+              <strong>más definido y estilizado</strong>, manteniendo naturalidad.
+            </p>
+
+            <h3>Procedimiento seguro y sin cicatrices visibles</h3>
+            <p>
+              Se realiza mediante pequeñas incisiones dentro de la boca, por lo que
+              <strong>no deja cicatrices externas</strong>. Es un procedimiento rápido,
+              con anestesia local y rápida recuperación.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres un rostro más definido y estilizado?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail { padding: 80px 0; background: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 50px; align-items: start; }
+  .detail-image { position: sticky; top: 120px; }
+  .detail-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+  .detail-content { padding-top: 0; }
+  .servicio-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 25px; font-weight: 700; line-height: 1.2; }
+  .detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 20px; }
+  .detail-content h3 { font-size: 1.5rem; color: var(--dark); margin: 35px 0 15px; font-weight: 600; }
+  .detail-content ul { margin-left: 25px; margin-bottom: 25px; }
+  .detail-content li { font-size: 1.05rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 8px; }
+  .detail-content strong { color: var(--dark); }
+  .cta-box { background: var(--cream); padding: 35px; border-radius: 10px; text-align: center; margin-top: 40px; }
+  .cta-box p { font-size: 1.2rem; color: var(--dark); margin-bottom: 20px; }
+  .back-link { margin-top: 30px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 1.05rem; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+  .back-link a:hover { color: var(--primary-dark, var(--dark)); }
+  .back-link .arrow { font-size: 1.2rem; }
+  @media (max-width: 968px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+    .detail-image { position: static; max-width: 500px; margin: 0 auto; }
+    .servicio-title { font-size: 1.8rem; }
+  }
+</style>

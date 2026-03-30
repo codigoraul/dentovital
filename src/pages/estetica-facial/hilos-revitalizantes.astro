@@ -1,0 +1,234 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Hilos Revitalizantes | Clínica Dentovital" description="Tratamiento con hilos revitalizantes en Antofagasta. Mejora la calidad de tu piel estimulando colágeno de forma natural.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Hilos Revitalizantes"
+      description="Mejora la calidad de tu piel desde el interior de forma natural"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <!-- Columna imagen (40%) -->
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Hilos-revitalizantes.webp')} alt="Hilos Revitalizantes" />
+          </div>
+
+          <!-- Columna contenido (60%) -->
+          <div class="detail-content">
+            <h2 class="servicio-title">Hilos Revitalizantes</h2>
+
+            <p>
+              Los hilos revitalizantes son un tratamiento de medicina estética que permite
+              <strong>mejorar la calidad de la piel desde el interior</strong>, estimulando la producción natural
+              de colágeno sin generar volumen ni cambiar la forma del rostro.
+            </p>
+            <p>
+              En Clínica Dentovital utilizamos este procedimiento como una estrategia de
+              <strong>rejuvenecimiento progresivo y natural</strong>, ideal para pacientes que buscan
+              una piel más firme, luminosa y saludable.
+            </p>
+
+            <h3>¿Qué son los hilos revitalizantes?</h3>
+            <p>
+              Son hilos finos y biocompatibles (generalmente de PDO) que se insertan en la piel para activar
+              un proceso de regeneración que produce:
+            </p>
+            <ul>
+              <li><strong>Aumento de colágeno y elastina</strong></li>
+              <li><strong>Mejora de la firmeza y elasticidad</strong></li>
+              <li><strong>Mayor hidratación y luminosidad</strong></li>
+            </ul>
+            <p>
+              A diferencia de los hilos tensores, <strong>no generan efecto lifting</strong>, sino una mejora global de la piel.
+            </p>
+
+            <h3>¿En qué zonas se pueden aplicar?</h3>
+            <ul>
+              <li>Rostro completo</li>
+              <li>Zona periocular</li>
+              <li>Mejillas</li>
+              <li>Contorno perioral</li>
+              <li>Cuello</li>
+              <li>Entrecejo</li>
+            </ul>
+
+            <h3>Resultados naturales y progresivos</h3>
+            <p>
+              El cambio no es inmediato, ya que depende del proceso biológico de formación de colágeno.
+              Los resultados comienzan a notarse progresivamente en las semanas siguientes, logrando una piel
+              <strong>más firme, uniforme y rejuvenecida</strong>.
+            </p>
+
+            <h3>Procedimiento mínimamente invasivo</h3>
+            <p>
+              Se realiza con anestesia local, con molestias leves y recuperación rápida.
+              Es un tratamiento ambulatorio que permite retomar actividades normales el mismo día.
+            </p>
+
+            <h3>¿Cuánto duran los resultados?</h3>
+            <p>
+              Los hilos se reabsorben de forma segura en algunos meses, pero su efecto puede durar entre
+              <strong>8 a 12 meses</strong>, gracias a la estimulación de colágeno.
+            </p>
+
+            <h3>Mejora tu piel desde adentro</h3>
+            <p>
+              Los hilos revitalizantes son ideales para quienes buscan <strong>rejuvenecer sin cambiar su rostro</strong>,
+              mejorando la calidad de la piel de forma natural, progresiva y segura.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres una piel más firme y luminosa?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .detail-content {
+    padding-top: 0;
+  }
+
+  .servicio-title {
+    font-size: 2.2rem;
+    color: var(--dark);
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+
+  .detail-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin: 35px 0 15px;
+    font-weight: 600;
+  }
+
+  .detail-content ul {
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+
+  .detail-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 8px;
+  }
+
+  .detail-content strong {
+    color: var(--dark);
+  }
+
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    margin-top: 30px;
+  }
+
+  .back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .back-link a:hover {
+    color: var(--primary-dark, var(--dark));
+  }
+
+  .back-link .arrow {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .detail-image {
+      position: static;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .servicio-title {
+      font-size: 1.8rem;
+    }
+  }
+</style>

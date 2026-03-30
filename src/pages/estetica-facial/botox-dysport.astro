@@ -1,0 +1,228 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Botox y Dysport | Clínica Dentovital" description="Tratamiento con toxina botulínica Botox y Dysport en Antofagasta. Suaviza arrugas de expresión con resultados naturales.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Botox y Dysport"
+      description="Suaviza arrugas de expresión y previene el envejecimiento facial"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <!-- Columna imagen (40%) -->
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Botox-Dysport.webp')} alt="Botox y Dysport" />
+          </div>
+
+          <!-- Columna contenido (60%) -->
+          <div class="detail-content">
+            <h2 class="servicio-title">Botox y Dysport</h2>
+
+            <p>
+              La toxina botulínica, conocida como <strong>Botox® y Dysport®</strong>, es uno de los tratamientos estéticos
+              más efectivos para <strong>suavizar arrugas de expresión y prevenir el envejecimiento facial</strong>,
+              logrando un aspecto más descansado, fresco y natural.
+            </p>
+            <p>
+              En Clínica Dentovital aplicamos un enfoque <strong>preciso y personalizado</strong>,
+              respetando la anatomía facial de cada paciente para obtener resultados <strong>armónicos</strong>.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>
+              La toxina botulínica actúa relajando de forma controlada los músculos responsables de las arrugas dinámicas, permitiendo:
+            </p>
+            <ul>
+              <li>Suavizar líneas existentes</li>
+              <li>Prevenir la formación de nuevas arrugas</li>
+              <li>Mejorar la apariencia general del rostro</li>
+            </ul>
+
+            <h3>Zonas más tratadas</h3>
+            <ul>
+              <li>Frente</li>
+              <li>Entrecejo</li>
+              <li>Patas de gallo</li>
+            </ul>
+            <p>
+              <em>(Tratamiento clásico de 3 zonas)</em><br />
+              También puede utilizarse en otras áreas según evaluación clínica.
+            </p>
+
+            <h3>Resultados naturales</h3>
+            <p>
+              Nuestro objetivo es mantener tu expresión, pero en su mejor versión.
+              Buscamos un resultado <strong>fresco, rejuvenecido y natural</strong>, evitando excesos o resultados artificiales.
+            </p>
+
+            <h3>Procedimiento rápido y sin recuperación</h3>
+            <p>
+              Es un tratamiento ambulatorio que dura pocos minutos, con molestias mínimas y sin necesidad de reposo.
+              Puedes retomar tus actividades normales inmediatamente.
+            </p>
+
+            <h3>¿Cuándo se ven los resultados?</h3>
+            <ul>
+              <li>Inicio de efecto: <strong>3 a 5 días</strong></li>
+              <li>Resultado completo: <strong>14 días</strong></li>
+            </ul>
+
+            <h3>¿Cuánto duran los resultados?</h3>
+            <p>
+              El efecto suele durar entre <strong>4 a 6 meses</strong>, dependiendo del metabolismo y la zona tratada.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres lucir un rostro más fresco y descansado?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .detail-content {
+    padding-top: 0;
+  }
+
+  .servicio-title {
+    font-size: 2.2rem;
+    color: var(--dark);
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+
+  .detail-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin: 35px 0 15px;
+    font-weight: 600;
+  }
+
+  .detail-content ul {
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+
+  .detail-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 8px;
+  }
+
+  .detail-content strong {
+    color: var(--dark);
+  }
+
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    margin-top: 30px;
+  }
+
+  .back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .back-link a:hover {
+    color: var(--primary-dark, var(--dark));
+  }
+
+  .back-link .arrow {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .detail-image {
+      position: static;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .servicio-title {
+      font-size: 1.8rem;
+    }
+  }
+</style>

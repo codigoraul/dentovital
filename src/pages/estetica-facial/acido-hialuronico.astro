@@ -1,0 +1,229 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Ácido Hialurónico | Clínica Dentovital" description="Tratamiento con ácido hialurónico en Antofagasta. Rejuvenece, hidrata y armoniza tu rostro de forma natural.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Ácido Hialurónico"
+      description="Rejuvenece, hidrata y armoniza tu rostro de forma natural"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <!-- Columna imagen (40%) -->
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/Acido-hialuronico.webp')} alt="Ácido Hialurónico" />
+          </div>
+
+          <!-- Columna contenido (60%) -->
+          <div class="detail-content">
+            <h2 class="servicio-title">Ácido Hialurónico</h2>
+
+            <p>
+              El ácido hialurónico es uno de los tratamientos más versátiles y efectivos en medicina estética,
+              ideal para <strong>rejuvenecer, hidratar y armonizar el rostro de forma natural</strong>,
+              sin necesidad de cirugía.
+            </p>
+            <p>
+              En Clínica Dentovital trabajamos con un enfoque <strong>integral y personalizado</strong>,
+              evaluando proporciones faciales, simetría y necesidades específicas de cada paciente para lograr
+              resultados <strong>elegantes, equilibrados y altamente naturales</strong>.
+            </p>
+
+            <h3>¿Qué es el ácido hialurónico?</h3>
+            <p>
+              Es una sustancia biocompatible presente de forma natural en el cuerpo, cuya función principal es
+              <strong>retener agua y mantener la piel hidratada, firme y con volumen</strong>.
+              Con el paso del tiempo, su producción disminuye, favoreciendo la aparición de arrugas y pérdida de volumen.
+            </p>
+
+            <h3>¿Qué se puede tratar?</h3>
+            <ul>
+              <li>Aumento y definición de labios</li>
+              <li>Rinomodelación</li>
+              <li>Relleno de ojeras</li>
+              <li>Surcos nasogenianos</li>
+              <li>Proyección de pómulos</li>
+              <li>Definición de mandíbula y mentón</li>
+              <li>Rejuvenecimiento facial global</li>
+            </ul>
+
+            <h3>Resultados naturales y personalizados</h3>
+            <p>
+              Nuestro objetivo es <strong>respetar tu identidad facial</strong>, mejorando proporciones y
+              corrigiendo signos de envejecimiento sin generar cambios artificiales.
+              Buscamos resultados <strong>sutiles, armónicos y de aspecto natural</strong>.
+            </p>
+
+            <h3>Procedimiento rápido y seguro</h3>
+            <p>
+              Es un tratamiento ambulatorio, mínimamente invasivo, con molestias leves y sin necesidad de reposo.
+              Se realiza con productos de alta calidad y técnicas avanzadas para garantizar resultados
+              <strong>seguros y predecibles</strong>.
+            </p>
+
+            <h3>¿Cuánto duran los resultados?</h3>
+            <p>
+              Los efectos pueden durar entre <strong>8 a 18 meses</strong>, dependiendo de la zona tratada,
+              el tipo de producto y el metabolismo del paciente.
+            </p>
+
+            <h3>Mejora tu rostro sin perder naturalidad</h3>
+            <p>
+              El ácido hialurónico es la mejor opción para quienes buscan <strong>verse mejor sin cambiar su esencia</strong>,
+              con resultados inmediatos y progresivos que potencian la belleza natural.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres rejuvenecer tu rostro de forma natural?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .detail-image {
+    position: sticky;
+    top: 120px;
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .detail-content {
+    padding-top: 0;
+  }
+
+  .servicio-title {
+    font-size: 2.2rem;
+    color: var(--dark);
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 20px;
+  }
+
+  .detail-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin: 35px 0 15px;
+    font-weight: 600;
+  }
+
+  .detail-content ul {
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+
+  .detail-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-mid);
+    margin-bottom: 8px;
+  }
+
+  .detail-content strong {
+    color: var(--dark);
+  }
+
+  .cta-box {
+    background: var(--cream);
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .cta-box p {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    margin-top: 30px;
+  }
+
+  .back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .back-link a:hover {
+    color: var(--primary-dark, var(--dark));
+  }
+
+  .back-link .arrow {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 968px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .detail-image {
+      position: static;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .servicio-title {
+      font-size: 1.8rem;
+    }
+  }
+</style>

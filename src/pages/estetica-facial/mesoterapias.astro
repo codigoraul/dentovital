@@ -1,0 +1,156 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="Mesoterapias | Clínica Dentovital" description="Tratamientos de mesoterapia facial en Antofagasta. Pink Glow, Amber Glow, Orchid Glow y NCTF para mejorar la calidad de tu piel.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="Mesoterapias"
+      description="Hidratación profunda, luminosidad y rejuvenecimiento desde el interior"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/MesoterapiaPink-Glow.webp')} alt="Mesoterapias" />
+          </div>
+
+          <div class="detail-content">
+            <h2 class="servicio-title">Mesoterapias</h2>
+
+            <p>
+              Tratamientos de medicina estética diseñados para <strong>mejorar la calidad de la piel desde el interior</strong>,
+              aportando hidratación profunda, vitaminas y activos regenerativos que devuelven luminosidad, firmeza y uniformidad al rostro.
+            </p>
+            <p>
+              En Clínica Dentovital trabajamos con protocolos personalizados utilizando
+              <strong>Pink Glow®, Amber Glow®, Orchid Glow® y NCTF®</strong>, seleccionando el más adecuado
+              según las necesidades específicas de cada paciente.
+            </p>
+
+            <h3>¿Qué contienen y en qué se diferencian?</h3>
+
+            <div class="producto-box">
+              <h4>Pink Glow® (Efecto iluminador y antimanchas)</h4>
+              <ul>
+                <li><strong>Componentes principales:</strong> Glutatión, vitaminas y antioxidantes</li>
+                <li><strong>Efecto principal:</strong> Iluminar la piel y unificar el tono</li>
+                <li><strong>Ideal para:</strong> Manchas, piel opaca o sin brillo, tono desigual</li>
+              </ul>
+              <p>Es el tratamiento con mayor efecto <strong>"piel glow" y despigmentante</strong>.</p>
+            </div>
+
+            <div class="producto-box">
+              <h4>Amber Glow® (Reparación y rejuvenecimiento)</h4>
+              <ul>
+                <li><strong>Componentes principales:</strong> Péptidos, antioxidantes y complejos regeneradores</li>
+                <li><strong>Efecto principal:</strong> Reparación celular + antiaging</li>
+                <li><strong>Ideal para:</strong> Piel envejecida, textura irregular, primeros signos de flacidez</li>
+              </ul>
+              <p>Mejora la piel desde un enfoque <strong>regenerativo y antiedad</strong>.</p>
+            </div>
+
+            <div class="producto-box">
+              <h4>Orchid Glow® (Hidratación intensiva y revitalización)</h4>
+              <ul>
+                <li><strong>Componentes principales:</strong> Ácido hialurónico, vitaminas y aminoácidos</li>
+                <li><strong>Efecto principal:</strong> Hidratación profunda + revitalización</li>
+                <li><strong>Ideal para:</strong> Piel deshidratada, falta de elasticidad, cansancio facial</li>
+              </ul>
+              <p>Es ideal para recuperar una piel <strong>hidratada, fresca y saludable</strong>.</p>
+            </div>
+
+            <div class="producto-box">
+              <h4>NCTF® (Complejo polirevitalizante)</h4>
+              <ul>
+                <li><strong>Componentes principales:</strong> Ácido hialurónico + más de 50 activos (vitaminas, aminoácidos, coenzimas, antioxidantes)</li>
+                <li><strong>Efecto principal:</strong> Rejuvenecimiento global de la piel</li>
+                <li><strong>Ideal para:</strong> Ojeras, piel apagada, prevención del envejecimiento</li>
+              </ul>
+              <p>Es uno de los tratamientos más completos, con un enfoque de <strong>rejuvenecimiento integral</strong>.</p>
+            </div>
+
+            <h3>Beneficios generales</h3>
+            <ul>
+              <li>Hidratación profunda</li>
+              <li>Mejora de la luminosidad</li>
+              <li>Unificación del tono</li>
+              <li>Disminución de líneas finas</li>
+              <li>Mejora de la textura de la piel</li>
+            </ul>
+
+            <h3>Resultados naturales y progresivos</h3>
+            <p>
+              Los resultados comienzan a notarse desde las primeras sesiones, con una piel cada vez más
+              luminosa, hidratada, suave y rejuvenecida. Sin cambiar volúmenes ni alterar la expresión facial.
+            </p>
+
+            <h3>Procedimiento rápido y sin recuperación</h3>
+            <p>
+              Se realiza mediante microinyecciones superficiales (mesoterapia), con anestesia tópica y sin tiempo de reposo.
+            </p>
+
+            <h3>¿Cuántas sesiones se recomiendan?</h3>
+            <p>
+              Generalmente se indican entre <strong>3 a 5 sesiones</strong> cada 2 o 3 semanas
+              dependiendo del estado de la piel y los objetivos del tratamiento.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres devolver luminosidad y frescura a tu piel?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail { padding: 80px 0; background: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 50px; align-items: start; }
+  .detail-image { position: sticky; top: 120px; }
+  .detail-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+  .detail-content { padding-top: 0; }
+  .servicio-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 25px; font-weight: 700; line-height: 1.2; }
+  .detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 20px; }
+  .detail-content h3 { font-size: 1.5rem; color: var(--dark); margin: 35px 0 15px; font-weight: 600; }
+  .detail-content h4 { font-size: 1.25rem; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .detail-content ul { margin-left: 25px; margin-bottom: 25px; }
+  .detail-content li { font-size: 1.05rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 8px; }
+  .detail-content strong { color: var(--dark); }
+  .producto-box { background: var(--cream, #f9f6f1); border-radius: 10px; padding: 25px 30px; margin-bottom: 20px; }
+  .producto-box p { margin-bottom: 0; }
+  .cta-box { background: var(--cream); padding: 35px; border-radius: 10px; text-align: center; margin-top: 40px; }
+  .cta-box p { font-size: 1.2rem; color: var(--dark); margin-bottom: 20px; }
+  .back-link { margin-top: 30px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 1.05rem; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+  .back-link a:hover { color: var(--primary-dark, var(--dark)); }
+  .back-link .arrow { font-size: 1.2rem; }
+  @media (max-width: 968px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+    .detail-image { position: static; max-width: 500px; margin: 0 auto; }
+    .servicio-title { font-size: 1.8rem; }
+  }
+</style>

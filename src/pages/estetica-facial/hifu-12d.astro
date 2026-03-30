@@ -1,0 +1,129 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
+import PageHero from '../../components/PageHero.astro';
+import { resolveAsset, resolveRoute } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
+---
+
+<MainLayout title="HIFU 12D | Clínica Dentovital" description="Tratamiento HIFU 12D en Antofagasta. Ultrasonido focalizado de alta intensidad para tensar la piel y redefinir el contorno facial.">
+  <Header />
+
+  <main style="margin-top: 90px;">
+    <PageHero
+      title="HIFU 12D"
+      description="Ultrasonido focalizado de alta intensidad para un lifting sin cirugía"
+      backgroundImage="images/bg-title/bg-estetica-facial.webp"
+    />
+
+    <section class="servicio-detail">
+      <div class="container">
+        <div class="detail-grid">
+          <div class="detail-image">
+            <img src={asset('images/estetica-facial/HIFU.webp')} alt="HIFU 12D" />
+          </div>
+
+          <div class="detail-content">
+            <h2 class="servicio-title">HIFU 12D</h2>
+
+            <p>
+              El HIFU 12D (Ultrasonido Focalizado de Alta Intensidad) es una tecnología avanzada que permite
+              <strong>tensar la piel, redefinir el contorno facial y estimular colágeno en profundidad</strong>,
+              logrando un efecto lifting sin cirugía, sin agujas y sin tiempos de recuperación.
+            </p>
+            <p>
+              En Clínica Dentovital utilizamos HIFU 12D con un enfoque <strong>preciso y personalizado</strong>,
+              trabajando a diferentes profundidades para tratar desde la piel superficial hasta capas más profundas
+              responsables de la firmeza facial.
+            </p>
+
+            <h3>¿Cómo funciona?</h3>
+            <p>
+              El HIFU actúa mediante energía de ultrasonido que llega a capas profundas de la piel, incluyendo el SMAS
+              (la misma capa que se trata en un lifting quirúrgico), generando:
+            </p>
+            <ul>
+              <li><strong>Contracción de los tejidos</strong></li>
+              <li><strong>Estimulación intensa de colágeno</strong></li>
+              <li><strong>Mejora progresiva de la firmeza y elasticidad</strong></li>
+            </ul>
+
+            <h3>¿Qué zonas se pueden tratar?</h3>
+            <ul>
+              <li>Rostro completo</li>
+              <li>Papada</li>
+              <li>Cuello</li>
+            </ul>
+
+            <h3>Resultados naturales y progresivos</h3>
+            <p>
+              Tras el tratamiento, a las 2-4 semanas se puede notar un leve efecto tensor, pero el resultado real
+              se desarrolla en los siguientes <strong>2 a 3 meses</strong>, a medida que el colágeno se regenera.
+              El objetivo es lograr un rostro <strong>más firme, definido y rejuvenecido</strong>, sin alterar la expresión natural.
+            </p>
+
+            <h3>Procedimiento cómodo y sin recuperación</h3>
+            <p>
+              Es un tratamiento ambulatorio que no requiere anestesia ni reposo.
+              Puedes retomar tus actividades normales inmediatamente después de la sesión.
+            </p>
+
+            <h3>¿Cuánto duran los resultados?</h3>
+            <p>
+              Los efectos pueden durar entre <strong>12 a 18 meses</strong>, dependiendo de la calidad
+              de la piel y el proceso natural de envejecimiento.
+            </p>
+
+            <h3>Rejuvenecimiento profundo sin cirugía</h3>
+            <p>
+              HIFU 12D es ideal para quienes buscan <strong>levantar, tensar y mejorar la calidad de la piel</strong>,
+              sin procedimientos invasivos, manteniendo resultados naturales y progresivos.
+            </p>
+
+            <div class="cta-box">
+              <p>¿Quieres un rostro más firme y definido sin cirugía?</p>
+              <a href="https://ff.healthatom.io/ZCokP6" target="_blank" class="btn btn-primary">Agendar Evaluación</a>
+            </div>
+
+            <div class="back-link">
+              <a href={resolveRoute(Astro, '/estetica-facial')}>
+                <span class="arrow">&larr;</span> Volver a Estética Facial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppBtn />
+</MainLayout>
+
+<style>
+  .servicio-detail { padding: 80px 0; background: #fff; }
+  .detail-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 50px; align-items: start; }
+  .detail-image { position: sticky; top: 120px; }
+  .detail-image img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+  .detail-content { padding-top: 0; }
+  .servicio-title { font-size: 2.2rem; color: var(--dark); margin-bottom: 25px; font-weight: 700; line-height: 1.2; }
+  .detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 20px; }
+  .detail-content h3 { font-size: 1.5rem; color: var(--dark); margin: 35px 0 15px; font-weight: 600; }
+  .detail-content ul { margin-left: 25px; margin-bottom: 25px; }
+  .detail-content li { font-size: 1.05rem; line-height: 1.8; color: var(--dark-mid); margin-bottom: 8px; }
+  .detail-content strong { color: var(--dark); }
+  .cta-box { background: var(--cream); padding: 35px; border-radius: 10px; text-align: center; margin-top: 40px; }
+  .cta-box p { font-size: 1.2rem; color: var(--dark); margin-bottom: 20px; }
+  .back-link { margin-top: 30px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 1.05rem; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+  .back-link a:hover { color: var(--primary-dark, var(--dark)); }
+  .back-link .arrow { font-size: 1.2rem; }
+  @media (max-width: 968px) {
+    .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+    .detail-image { position: static; max-width: 500px; margin: 0 auto; }
+    .servicio-title { font-size: 1.8rem; }
+  }
+</style>
