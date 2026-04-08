@@ -15,23 +15,29 @@ const equipo = [
     nombre: "Dr. Miguel Cañas Vergara",
     especialidad: "Cirujano Dentista",
     imagen: "images/equipo/miguel-canas.webp",
-    descripcion: "Especialista en implantología bucomaxilofacial."
+    descripcion: ["Especialista en implantología bucomaxilofacial", "Socio fundador"],
+    descripcionCompleta: [
+      "Diplomado en rehabilitación oral avanzada U. Andes",
+      "Diplomado en cariología clínica avanzada U. Chile",
+      "Diplomado teórico-clínico en cirugía para implantes U. Andrés Bello"
+    ]
   },
   {
 
-    nombre: "Dra. Nicole Urzua Varas",
+    nombre: "Dra. Nicole Urzúa Varas",
     especialidad: "Cirujana Dentista",
     imagen: "images/equipo/nicole-urzua.webp",
-    descripcion: "Especialista en armonización facial"
+    descripcion: ["Diplomado en medicina estética U. Autónoma de Chile", 
+    "Socia fundadora"]
   },
   {
-    nombre: "Barbara Michea Pinto",
+    nombre: "Bárbara Michea Pinto",
     especialidad: "Cirujana Dentista",
     imagen: "images/equipo/barbara-michea.webp",
-    descripcion: "Especialista en armonización facial"
+    descripcion: "Diplomado en medicina estética U. Autónoma de Chile"
   },
   {
-    nombre: "Dr. Cristobal Soto Tello",
+    nombre: "Dr. Cristóbal Soto Tello",
     especialidad: "Cirujano Dentista",
     imagen: "images/equipo/cristobal-soto.webp",
     descripcion: "Especialista en endodoncia"
@@ -42,19 +48,25 @@ const equipo = [
     nombre: "Dra. Camila Cuello Araya",
     especialidad: "Cirujana Dentista",
     imagen: "images/equipo/camila-cuello.webp",
-    descripcion: ""
+    descripcion: [
+      "Diplomado en rehabilitación implanto asistida", 
+      "Rehabilitación oral"
+
+    ]
   },
   {
     nombre: "Dr. Richard Beltrán Romero",
     especialidad: "Cirujano Dentista",
     imagen: "images/equipo/richard-beltran.webp",
-    descripcion: "Especialista en periodoncia "
+    descripcion: "Especialista en Periodoncia "
   } ,
   {
     nombre: "Dr. Diego Manzanares Arancibia",
     especialidad: "Cirujano Dentista",
     imagen: "images/equipo/diego-manzanares.webp",
-    descripcion: "Especialista en ortodoncia y ortopedia dentomaxilofacial"
+    descripcion: ["Especialista en ortodoncia y ortopedia dentomaxilofacial",
+      "Master en alineadores dentales"
+    ]
   }
 ];
 ---
@@ -89,13 +101,18 @@ const equipo = [
             <div class="equipo-card max-w-[300px]">
               <div class="equipo-image">
                 <img src={asset(miembro.imagen)} alt={miembro.nombre} />
-                <div class="equipo-overlay">
-                  <p>{miembro.descripcion}</p>
-                </div>
+                {miembro.descripcionCompleta && (
+                  <div class="equipo-overlay">
+                    <p set:html={miembro.descripcionCompleta.join('<br>')} />
+                  </div>
+                )}
               </div>
               <div class="equipo-info">
                 <h3>{miembro.nombre}</h3>
                 <p class="especialidad">{miembro.especialidad}</p>
+                {miembro.descripcion && (
+                  <p class="descripcion" set:html={Array.isArray(miembro.descripcion) ? miembro.descripcion.join('<br>') : miembro.descripcion} />
+                )}
               </div>
             </div>
           ))}
@@ -232,8 +249,8 @@ const equipo = [
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    padding: 30px 20px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
+    padding: 20px;
     transform: translateY(100%);
     transition: transform 0.3s ease;
   }
@@ -244,8 +261,8 @@ const equipo = [
   
   .equipo-overlay p {
     color: #fff;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
     margin: 0;
   }
   
@@ -264,6 +281,14 @@ const equipo = [
     color: var(--primary);
     font-weight: 500;
     font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .descripcion {
+    color: var(--dark-mid);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
   }
   
   .valores {
