@@ -4,6 +4,9 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
 import PageHero from '../../components/PageHero.astro';
+import { resolveAsset } from '../../lib/assets';
+
+const asset = (path: string) => resolveAsset(Astro, path);
 ---
 
 <MainLayout
@@ -89,7 +92,7 @@ import PageHero from '../../components/PageHero.astro';
           </div>
           
           <div class="detail-image">
-            <img src="/images/especialidades/odontologia-general.webp" alt="Odontología General" />
+            <img src={asset('images/especialidades/odontologia-general.webp')} alt="Odontología General" />
           </div>
         </div>
       </div>
