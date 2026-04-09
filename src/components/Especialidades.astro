@@ -8,7 +8,7 @@ try {
   especialidades = await getEspecialidades();
   isWpConnected = especialidades.length > 0;
 } catch (error) {
-  console.error('Error loading especialidades:', error);
+  console.log('WordPress no disponible, usando contenido estático');
 }
 
 const fallbackEspecialidades = [
@@ -45,8 +45,20 @@ const fallbackEspecialidades = [
   {
     nombre: "Odontología general",
     descripcion: "Atención integral para toda la familia",
-    imagen: "",
+    imagen: "/images/especialidades/odontologia-general.webp",
     slug: "odontologia-general"
+  },
+  {
+    nombre: "Odontopediatría",
+    descripcion: "Cuidado dental especializado para niños y adolescentes",
+    imagen: "/images/especialidades/odontopediatria.webp",
+    slug: "odontopediatria"
+  },
+  {
+    nombre: "Periodoncia",
+    descripcion: "Tratamiento de encías y tejidos de soporte dental",
+    imagen: "/images/especialidades/periodoncia.webp",
+    slug: "periodoncia"
   }
 ];
 
@@ -73,17 +85,12 @@ const displayEspecialidades = isWpConnected ? especialidades : fallbackEspeciali
         const descripcion = isWpConnected ? esp.acf?.especialidad_descripcion : esp.descripcion;
         const imagen = isWpConnected ? esp.acf?.especialidad_imagen?.url : esp.imagen;
         const slug = isWpConnected ? esp.slug : esp.slug;
-        const imagenSrc = imagen ? asset(imagen) : null;
 
         return (
           <div class="card especialidad-card">
-            {imagenSrc ? (
-              <div class="especialidad-image">
-                <img src={imagenSrc} alt={nombre} />
-              </div>
-            ) : (
-              <div class="especialidad-icono"><span>🦷</span></div>
-            )}
+            <div class="especialidad-image">
+              <img src={imagen} alt={nombre} />
+            </div>
             <div class="especialidad-content">
               <h3>
                 <a href={route(`especialidad/${slug}`)}>{nombre}</a>
