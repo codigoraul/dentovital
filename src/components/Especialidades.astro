@@ -88,9 +88,11 @@ const displayEspecialidades = isWpConnected ? especialidades : fallbackEspeciali
 
         return (
           <div class="card especialidad-card">
-            <div class="especialidad-image">
-              <img src={imagen} alt={nombre} />
-            </div>
+            <a href={route(`especialidad/${slug}`)}>
+              <div class="especialidad-image">
+                <img src={imagen} alt={nombre} />
+              </div>
+            </a>
             <div class="especialidad-content">
               <h3>
                 <a href={route(`especialidad/${slug}`)}>{nombre}</a>
@@ -143,6 +145,11 @@ const displayEspecialidades = isWpConnected ? especialidades : fallbackEspeciali
     width: 100%;
     height: 200px;
     overflow: hidden;
+  }
+
+  .especialidad-card a {
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .especialidad-image img {
