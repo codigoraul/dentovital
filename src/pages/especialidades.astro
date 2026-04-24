@@ -103,9 +103,11 @@ const displayEspecialidades = isWpConnected ? especialidades : fallbackEspeciali
             return (
               <div class="especialidad-card">
                 {imagenSrc ? (
-                  <div class="especialidad-image">
-                    <img src={imagenSrc} alt={nombre} />
-                  </div>
+                  <a href={route(`especialidad/${slug}`)}>
+                    <div class="especialidad-image">
+                      <img src={imagenSrc} alt={nombre} />
+                    </div>
+                  </a>
                 ) : (
                   <div class="especialidad-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
