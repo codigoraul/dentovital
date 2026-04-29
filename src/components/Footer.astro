@@ -54,7 +54,7 @@ const asset = (path: string) => resolveAsset(Astro, path);
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; {new Date().getFullYear()} Clínica Dentovital — Todos los derechos reservados</p>
+      <p>&copy; {new Date().getFullYear()} Clínica Dentovital — Todos los derechos reservados | Diseño por <a href="https://diseñopaginas.cl" target="_blank" rel="noopener noreferrer">diseñopaginas.cl</a></p>
     </div>
   </div>
 </footer>
@@ -149,6 +149,16 @@ const asset = (path: string) => resolveAsset(Astro, path);
   .footer-bottom p {
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
+  }
+  
+  .footer-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-bottom a:hover {
+    color: var(--primary);
   }
   
   @media (max-width: 968px) {
