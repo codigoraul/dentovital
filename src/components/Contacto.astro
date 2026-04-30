@@ -17,7 +17,16 @@
           </div>
           <div>
             <h3>Dirección</h3>
-            <p>Uribe #636, oficina 306<br>Antofagasta, Chile</p>
+            <p>
+              <a href="https://maps.app.goo.gl/RaDfnk4E4k3poZpZ9" target="_blank" rel="noopener noreferrer" class="address-link-contact">
+                Uribe #636, oficina 306
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-left: 5px; vertical-align: middle;">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+              <br>Antofagasta, Chile
+            </p>
           </div>
         </div>
         
@@ -77,11 +86,14 @@
       </div>
       
       <div class="contacto-map">
+        <a href="https://maps.app.goo.gl/RaDfnk4E4k3poZpZ9" target="_blank" rel="noopener noreferrer" class="map-overlay">
+          <span>Ver en Google Maps</span>
+        </a>
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14609.590955!2d-70.401234!3d-23.650123!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ae2bd8c0a0a0a1%3A0x1234567890abcdef!2sUribe%20636%2C%20Oficina%20306%2C%20Antofagasta!5e0!3m2!1ses!2scl!4v1714502400!5m2!1ses!2scl" 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3654.6904679994486!2d-70.4011382!3d-23.6512537!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96afd56160b83247%3A0x2c18052326ae57f5!2sCl%C3%ADnica%20Dentovital.%20Urgencias%2FOrtodoncia%2FEndodoncia%2Fimplantes%2FBotox%2FAc%20Hialuronico%2FPr%C3%B3tesis.!5e0!3m2!1ses!2scl!4v1777576190897!5m2!1ses!2scl" 
           width="100%" 
           height="450" 
-          style="border:0; border-radius: 10px;" 
+          style="border:0; border-radius: 10px; pointer-events: none;" 
           allowfullscreen="" 
           loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade">
@@ -157,6 +169,16 @@
     color: var(--dark);
   }
   
+  .address-link-contact {
+    color: var(--dark-mid);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .address-link-contact:hover {
+    color: var(--gold);
+  }
+  
   .social-links {
     display: flex;
     gap: 15px;
@@ -181,9 +203,38 @@
   }
   
   .contacto-map {
+    position: relative;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .map-overlay span {
+    opacity: 0;
+    background: var(--gold);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+  }
+  
+  .map-overlay:hover span {
+    opacity: 1;
   }
   
   @media (max-width: 968px) {
