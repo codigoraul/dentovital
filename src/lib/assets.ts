@@ -1,6 +1,6 @@
 import type { AstroGlobal } from 'astro';
 
-const BASE = '/prueba';
+const BASE = '';
 
 export function resolveAsset(Astro: AstroGlobal, path: string) {
   if (/^https?:\/\//.test(path)) {
